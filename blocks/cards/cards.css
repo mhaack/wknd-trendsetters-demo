@@ -468,7 +468,6 @@
   justify-content: center;
 }
 
-/* Center horizontal layout */
 .cards.cards21 > ul {
   padding: 0;
   margin: 0;
@@ -479,7 +478,6 @@
   min-width: 0;
 }
 
-/* Card base: flex row for image and (visually overlayed) text */
 .cards.cards21 > ul > li {
   display: flex;
   flex-direction: row;
@@ -500,7 +498,6 @@
   background-color: transparent;
 }
 
-/* Outline/backing rectangle, tight to card, stronger rotation offset */
 .cards.cards21 > ul > li::before {
   display: block;
   position: absolute;
@@ -514,7 +511,6 @@
   transform: rotate(12deg);
 }
 
-/* Main image fills most of the card, rounded edges */
 .cards.cards21 .cards-card-image {
   width: 100%;
   min-width: 0;
@@ -530,7 +526,6 @@
   box-shadow: 0 6px 32px 0 rgb(0 0 0 / 9%);
 }
 
-/* Image fills parent */
 .cards.cards21 .cards-card-image img,
 .cards.cards21 .cards-card-image picture {
   display: block;
@@ -539,7 +534,6 @@
   object-fit: cover;
 }
 
-/* Visually overlay the card body into the image, lower right */
 .cards.cards21 .cards-card-body {
   width: auto;
   min-width: 0;
@@ -559,7 +553,6 @@
   pointer-events: none;
 }
 
-/* Text style: tight, card-like, with soft shadow and angle */
 .cards.cards21 .cards-card-body p {
   font-family: var(--body-font-family);
   font-size: 1.08rem;
@@ -578,14 +571,12 @@
   pointer-events: auto;
 }
 
-/* Remove default card margin/padding */
 .cards.cards21 .cards-card-body,
 .cards.cards21 .cards-card-image {
   margin: 0;
   box-sizing: border-box;
 }
 
-/* Responsive stacking for small screens */
 @media (width <= 700px) {
   .cards.cards21 {
     min-height: 0;
@@ -625,5 +616,127 @@
     box-shadow: none;
     transform: none;
     margin-left: 0;
+  }
+}
+
+
+.cards.cards23 {
+  background: #f6f6f6;
+  border-radius: 24px;
+  padding: 32px 0;
+}
+
+/* Use a 2-row, 3-column grid with areas for more accurate layout */
+.cards.cards23 > ul {
+  display: grid;
+  grid-template: "feature feature-right feature-right" auto ". card-3 card-4" auto / 2fr 1fr 1fr;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+/* First card: Large featured, upper-left */
+.cards.cards23 > ul > li:nth-child(1) {
+  grid-area: feature;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  align-self: start;
+}
+
+/* Second card: Top right, spanning columns 2 and 3 */
+.cards.cards23 > ul > li:nth-child(2) {
+  grid-area: feature-right;
+  grid-column: 2 / 4;
+  grid-row: 1 / 2;
+  align-self: stretch;
+}
+
+/* Third card: Bottom middle */
+.cards.cards23 > ul > li:nth-child(3) {
+  grid-area: card-3;
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  align-self: start;
+}
+
+/* Fourth card: Bottom right */
+.cards.cards23 > ul > li:nth-child(4) {
+  grid-area: card-4;
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+  align-self: start;
+}
+
+/* Remove unwanted stretching and min-height */
+.cards.cards23 > ul > li {
+  background: #fff;
+  border: none;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 0;
+  box-shadow: 0 2px 8px 0 rgb(60 60 60 / 3%);
+}
+
+/* Card images: consistent aspect and rounded corners */
+.cards.cards23 .cards-card-image picture,
+.cards.cards23 .cards-card-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 24px 24px 0 0;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  background: #eee;
+}
+
+.cards.cards23 .cards-card-body {
+  padding: 20px 24px 24px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1 1 auto;
+  justify-content: flex-start;
+}
+
+.cards.cards23 .cards-card-body h3 {
+  font-family: var(--heading-font-family);
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #333;
+  letter-spacing: 0.06em;
+  margin: 0 0 7px;
+  line-height: 1.22;
+}
+
+.cards.cards23 .cards-card-body p {
+  font-family: var(--body-font-family);
+  font-size: 1rem;
+  color: #6d6d6d;
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+/* Responsive stacking for small screens */
+@media (width <= 900px) {
+  .cards.cards23 > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .cards.cards23 > ul > li {
+    width: 100%;
+    min-width: 0;
+    grid-area: unset;
+    grid-column: unset;
+    grid-row: unset;
   }
 }
