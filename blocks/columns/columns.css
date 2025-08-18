@@ -1,7 +1,13 @@
 /* stylelint-disable no-descending-specificity */
 .columns > div {
-  display: flex;
+  display: grid;
   flex-direction: column;
+  grid-template-columns: minmax(260px, 1.2fr) repeat(3, 1fr);
+  gap: 64px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 72px;
+  align-items: flex-start;
 }
 
 .columns img {
@@ -10,6 +16,9 @@
 
 .columns > div > div {
   order: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .columns > div > .columns-img-col {
@@ -1012,7 +1021,6 @@
   box-sizing: border-box;
 }
 
-/* Use CSS Grid for two columns; all "bands" are stacked in a single top-level grid row, then bottom band uses flex in the left column */
 .columns.columns26 > div {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
@@ -1032,9 +1040,6 @@
   }
 }
 
-/* ---------- TOP BAND (row 1) ---------- */
-
-/* First column, top band: title, quote, avatar row */
 .columns.columns26 > div > div:first-child {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
@@ -1044,7 +1049,6 @@
   padding-bottom: 0;
 }
 
-/* Second column, right: logo in top band should be hidden, unless you decide to show it on mobile (prefer bottom band only) */
 .columns.columns26 > div > div:last-child {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
@@ -1055,7 +1059,6 @@
   padding-top: 2.25rem;
 }
 
-/* ---------- BOTTOM BAND (row 2) ---------- */
 .columns.columns26 .columns26-bottom-row {
   display: flex;
   flex-direction: row;
@@ -1073,7 +1076,6 @@
   }
 }
 
-/* Avatar image styling (inside p:nth-child(3)) */
 .columns.columns26 > div > div:first-child > p:nth-child(3) img {
   width: 40px;
   height: 40px;
@@ -1092,7 +1094,6 @@
   padding: 0;
 }
 
-/* Name and description in avatar row */
 .columns.columns26 > div > div:first-child > p:nth-child(4),
 .columns.columns26 > div > div:first-child > p:nth-child(5) {
   display: block;
@@ -1113,9 +1114,6 @@
   font-size: 0.95rem;
 }
 
-/* ---------- TITLE/QUOTE ---------- */
-
-/* Title in p:first-child */
 .columns.columns26 > div > div:first-child > p:first-child {
   font-family: Syncopate, 'Syncopate Fallback', Arial, sans-serif;
   font-size: 2.5rem;
@@ -1127,7 +1125,6 @@
   margin-bottom: 0.85rem;
 }
 
-/* Quote in p:nth-child(2) */
 .columns.columns26 > div > div:first-child > p:nth-child(2) {
   font-size: 1.02rem;
   color: #222320;
@@ -1138,7 +1135,6 @@
   max-width: 430px;
 }
 
-/* logo styling in right column */
 .columns.columns26 > div > div:last-child > p > img,
 .columns.columns26 > div > div:last-child > p > svg {
   max-width: 140px;
@@ -1154,7 +1150,6 @@
   }
 }
 
-/* ---------- FULL-WIDTH DIVIDER BETWEEN BANDS ---------- */
 .columns.columns26 > div::after {
   display: block;
   position: absolute;
@@ -1164,8 +1159,6 @@
   background: #e1e4de;
   width: 100%;
   z-index: 1;
-
-  /* No content property, just visual line */
 }
 
 @media (width <= 899px) {
@@ -1174,25 +1167,21 @@
   }
 }
 
-/* ---------- Spacing overrides ---------- */
 .columns.columns26 p {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-/* Hide any empty paragraphs */
 .columns.columns26 p:empty {
   display: none;
 }
 
-/* Utility: avatar images are not full width */
 .columns.columns26 > div > div:first-child img:not([src*="svg+xml"]) {
   max-width: 40px;
   width: 40px;
   height: 40px;
 }
 
-/* ---------- Responsive adjustments ---------- */
 @media (width <= 899px) {
   .columns.columns26 {
     padding: 1.5rem 0.5rem;
@@ -1207,9 +1196,207 @@
   }
 }
 
-/* Ensure logo aligns with avatar/bottom band on desktop */
 @media (width >= 900px) {
   .columns.columns26 > div {
     align-items: end;
+  }
+}
+
+
+.columns {
+  background: #FAFAF6;
+  color: #181818;
+  font-family: 'Instrument Sans', Montserrat, Arial, sans-serif;
+  padding: 96px 0;
+}
+
+/* Make all text and links inside columns dark for contrast */
+.columns h1, 
+.columns h2, 
+.columns h3, 
+.columns h4, 
+.columns h5, 
+.columns h6,
+.columns p, 
+.columns ul li, 
+.columns ul li a, 
+.columns small, 
+.columns .small, 
+.columns .button, 
+.columns .button-container .button {
+  color: #181818;
+}
+
+.columns ul li a {
+  text-decoration: none;
+  transition: color 0.15s;
+  display: block;
+  color: #181818;
+  font-family: 'Instrument Sans', Arial, sans-serif;
+  font-size: 1.18rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+}
+
+.columns ul li a:hover,
+.columns ul li a:focus {
+  color: #666;
+  text-decoration: underline;
+}
+
+/* Main grid layout: 4 columns, left column slightly narrower for visual balance */
+
+/* Responsive grid */
+@media (width <= 1100px) {
+  .columns > div {
+    gap: 36px;
+    padding: 0 28px;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (width <= 700px) {
+  .columns > div {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 0 12px;
+  }
+}
+
+/* Each column stack children vertically */
+
+/* Headings: bold, dark, clear */
+.columns h2 {
+  font-family: Montserrat, Syncopate, Arial, sans-serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #181818;
+  margin: 0 0 32px;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.1;
+}
+
+/* List styling for nav columns */
+.columns ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns ul li {
+  margin: 0 0 24px;
+}
+
+.columns ul li:last-child {
+  margin-bottom: 0;
+}
+
+/* First column: left alignment, more padding, wider icon row */
+.columns > div > div:first-child {
+  padding-top: 40px;
+  align-items: flex-start;
+  min-width: 240px;
+}
+
+.columns > div > div:first-child > p {
+  margin: 0 0 36px;
+}
+
+/* Social icons row */
+.columns > div > div:first-child ul {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 34px;
+  margin: 28px 0 0;
+  margin-bottom: 32px;
+}
+
+/* Social icon alignment and size */
+.columns > div > div:first-child ul li {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Make SVG and IMG icons dark by using filter */
+.columns > div > div:first-child img,
+.columns > div > div:first-child svg {
+  width: 46px;
+  height: 46px;
+  margin-right: 0;
+  vertical-align: middle;
+  border-radius: 8px;
+  background: none;
+  filter: brightness(0) saturate(100%) invert(0) sepia(0) hue-rotate(0deg);
+}
+
+/* Add more vertical breathing room after icons */
+
+/* Button style override */
+.columns .button-container .button,
+.columns .button {
+  font-family: Montserrat, Syncopate, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 1.15rem;
+  padding: 16px 40px;
+  border-radius: 999px;
+  border: 2px solid #181818;
+  background: #FAFAF6;
+  color: #181818;
+  box-shadow: none;
+  margin-top: 36px;
+  margin-bottom: 0;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.columns .button-container .button:hover,
+.columns .button:hover,
+.columns .button-container .button:focus,
+.columns .button:focus {
+  background: #181818;
+  color: #FAFAF6;
+  border-color: #181818;
+}
+
+/* Caption/small text */
+.columns small,
+.columns .small,
+.columns > div > div:first-child > p:last-of-type {
+  color: #888;
+  font-size: 1rem;
+  margin-top: 18px;
+  margin-bottom: 0;
+}
+
+/* Responsive tweaks for headings and icons */
+@media (width <= 900px) {
+  .columns h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .columns .button-container .button,
+  .columns .button {
+    font-size: 1rem;
+    padding: 10px 22px;
+    margin-top: 22px;
+  }
+
+  .columns > div > div:first-child img,
+  .columns > div > div:first-child svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .columns ul li a {
+    font-size: 1rem;
+  }
+
+  .columns > div > div:first-child ul {
+    gap: 18px;
   }
 }
