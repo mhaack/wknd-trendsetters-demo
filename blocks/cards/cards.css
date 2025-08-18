@@ -367,12 +367,11 @@
   box-sizing: border-box;
 }
 
-/* Use less restrictive selectors to ensure grid applies */
 .cards.cards19 ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: minmax(0, auto);
-  gap: 20px 22px; /* vertical x horizontal gap */
+  gap: 20px 22px;
   justify-content: center;
   align-items: start;
   padding: 0;
@@ -382,7 +381,6 @@
   box-sizing: border-box;
 }
 
-/* Card: flex row, align icon and text left */
 .cards.cards19 li {
   display: flex;
   flex-direction: row;
@@ -396,13 +394,11 @@
   max-width: 100%;
 }
 
-/* Remove all default margin/padding */
 .cards.cards19 .cards-card-body {
   margin: 0;
   padding: 0;
 }
 
-/* Icon: left, text: right, horizontal, align vertically */
 .cards.cards19 .cards-card-body:first-child {
   margin-right: 10px;
   flex-shrink: 0;
@@ -411,7 +407,6 @@
   padding: 0;
 }
 
-/* Icon styling: small, gray, not stretched */
 .cards.cards19 img {
   width: 18px;
   height: 18px;
@@ -425,7 +420,6 @@
   color: #565656;
 }
 
-/* Text styling: fill column, small, gray, left-aligned */
 .cards.cards19 .cards-card-body:last-child p {
   color: #565656;
   font-size: var(--body-font-size-xs);
@@ -435,11 +429,10 @@
   line-height: 1.4;
   text-align: left;
   word-break: break-word;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   max-width: none;
 }
 
-/* Responsive: 2 columns at tablet */
 @media (width <= 900px) {
   .cards.cards19 {
     max-width: 600px;
@@ -451,7 +444,6 @@
   }
 }
 
-/* Responsive: 1 column at mobile */
 @media (width <= 600px) {
   .cards.cards19 {
     max-width: 98vw;
@@ -461,5 +453,177 @@
   .cards.cards19 ul {
     grid-template-columns: 1fr;
     gap: 14px 0;
+  }
+}
+
+
+.cards.cards21 {
+  background: #fff;
+  padding: 0;
+  position: relative;
+  overflow: visible;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Center horizontal layout */
+.cards.cards21 > ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Card base: flex row for image and (visually overlayed) text */
+.cards.cards21 > ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  position: relative;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  border-radius: 22px;
+  width: 500px;
+  height: 340px;
+  margin: 0;
+  z-index: 2;
+  transform: rotate(-8deg);
+  overflow: visible;
+  background-color: transparent;
+}
+
+/* Outline/backing rectangle, tight to card, stronger rotation offset */
+.cards.cards21 > ul > li::before {
+  display: block;
+  position: absolute;
+  inset: 8px -12px -8px 12px;
+  outline: 2px solid #222;
+  border-radius: 24px;
+  pointer-events: none;
+  z-index: 0;
+  background: none;
+  content: "";
+  transform: rotate(12deg);
+}
+
+/* Main image fills most of the card, rounded edges */
+.cards.cards21 .cards-card-image {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  background: #fff;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  box-shadow: 0 6px 32px 0 rgb(0 0 0 / 9%);
+}
+
+/* Image fills parent */
+.cards.cards21 .cards-card-image img,
+.cards.cards21 .cards-card-image picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Visually overlay the card body into the image, lower right */
+.cards.cards21 .cards-card-body {
+  width: auto;
+  min-width: 0;
+  max-width: 68%;
+  height: auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  position: absolute;
+  right: 32px;
+  bottom: 30px;
+  z-index: 4;
+  background: transparent;
+  margin: 0;
+  transform: rotate(5deg);
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+/* Text style: tight, card-like, with soft shadow and angle */
+.cards.cards21 .cards-card-body p {
+  font-family: var(--body-font-family);
+  font-size: 1.08rem;
+  color: #232323;
+  font-weight: 400;
+  line-height: 1.45;
+  margin: 0;
+  letter-spacing: 0.01em;
+  background: rgb(255 255 255 / 99%);
+  border-radius: 12px;
+  padding: 0.6em 1.2em 0.6em 1em;
+  box-shadow: 0 4px 16px 0 rgb(50 50 50 / 11%);
+  max-width: 100%;
+  transform: rotate(-4deg);
+  box-sizing: border-box;
+  pointer-events: auto;
+}
+
+/* Remove default card margin/padding */
+.cards.cards21 .cards-card-body,
+.cards.cards21 .cards-card-image {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Responsive stacking for small screens */
+@media (width <= 700px) {
+  .cards.cards21 {
+    min-height: 0;
+    padding-bottom: 2rem;
+  }
+
+  .cards.cards21 > ul > li {
+    flex-direction: column;
+    width: 98vw;
+    max-width: 99vw;
+    min-width: 0;
+    height: auto;
+    margin: 0 auto 2.5rem;
+    transform: none;
+    outline-offset: -4px;
+  }
+
+  .cards.cards21 > ul > li::before {
+    display: none;
+  }
+
+  .cards.cards21 .cards-card-image,
+  .cards.cards21 .cards-card-body {
+    width: 100%;
+    height: auto;
+    padding: 0.8rem 0.5rem;
+    margin-left: 0;
+    position: static;
+    transform: none;
+  }
+
+  .cards.cards21 .cards-card-body p {
+    font-size: 1rem;
+    padding: 0.18em 0.25em 0.18em 0;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: none;
+    transform: none;
+    margin-left: 0;
   }
 }
