@@ -441,7 +441,6 @@
   gap: 0;
 }
 
-/* Top row: headline + text/info - horizontal flex for layout */
 .columns.columns11 > div:first-child {
   display: flex;
   flex-direction: row;
@@ -458,13 +457,11 @@
   }
 }
 
-/* Left: Headline and supporting text/info */
 .columns.columns11 > div:first-child > div:first-child {
   flex: 1 1 0;
   min-width: 0;
 }
 
-/* Label and headline styling */
 .columns.columns11 > div:first-child > div:first-child p {
   margin: 0 0 18px;
   color: #333;
@@ -485,10 +482,9 @@
   font-weight: 700;
   letter-spacing: -0.02em;
   word-break: break-word;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
-/* Supporting info stack */
 .columns.columns11 > div:first-child > div:last-child {
   flex: 1 1 0;
   display: flex;
@@ -497,7 +493,6 @@
   min-width: 0;
 }
 
-/* Intro text */
 .columns.columns11 > div:first-child > div:last-child > p:first-child {
   color: #444;
   font-size: 18px;
@@ -508,7 +503,6 @@
   max-width: 540px;
 }
 
-/* Info row: author avatar, name, date, dot, read-time: flex row */
 .columns.columns11 > div:first-child > div:last-child > p:nth-child(n+2):nth-child(-n+6) {
   display: inline-flex;
   align-items: center;
@@ -521,7 +515,6 @@
   vertical-align: middle;
 }
 
-/* Avatar image styling */
 .columns.columns11 > div:first-child > div:last-child > p:nth-child(2) picture img {
   width: 36px;
   height: 36px;
@@ -531,18 +524,15 @@
   margin-right: 8px;
 }
 
-/* Add spacing after info row so button sits close */
 .columns.columns11 > div:first-child > div:last-child > p:nth-child(6) {
   margin-right: 0;
 }
 
-/* Button container: left align button and reduce separation */
 .columns.columns11 .button-container {
   margin-top: 8px;
   text-align: left;
 }
 
-/* Button design */
 .columns.columns11 .button-container .button,
 .columns.columns11 .button-container a.button {
   border: 1px solid #222;
@@ -557,7 +547,6 @@
   margin: 0;
 }
 
-/* Second row: images side by side */
 .columns.columns11 > div:last-child {
   display: flex;
   flex-direction: row;
@@ -575,7 +564,6 @@
   }
 }
 
-/* Image cards styling */
 .columns.columns11 .columns-img-col {
   flex: 1 1 0;
   aspect-ratio: 1 / 1;
@@ -593,4 +581,100 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+
+.columns.columns14 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  margin-top: 0;
+}
+
+/* Responsive: Stack columns vertically on small screens */
+@media (width <= 900px) {
+  .columns.columns14 > div {
+    flex-direction: column;
+    gap: 2rem;
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+}
+
+/* Slightly widen right column for more natural text wrapping */
+.columns.columns14 > div > div:first-child {
+  flex: 1.13 1 0%;
+  min-width: 0;
+}
+
+.columns.columns14 > div > div:last-child {
+  flex: 0.87 1 0%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.11em;
+  min-height: unset;
+  margin-top: 0;
+}
+
+/* Heading: bold, large, generous space below */
+.columns.columns14 > div > div:first-child h2 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.03em;
+  color: #000;
+  margin-top: 0;
+  margin-bottom: 1.1em;
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+}
+
+/* Right column: smaller vertical gap, group paragraph + button visually */
+
+/* Paragraph: left aligned, tighter lines */
+.columns.columns14 > div > div:last-child p {
+  font-size: 1rem;
+  color: #000;
+  font-family: var(--body-font-family);
+  line-height: 1.32;
+  margin: 0;
+  padding: 0;
+}
+
+/* Button container: remove extra margin */
+.columns.columns14 > div > div:last-child .button-container {
+  margin: 0;
+  padding: 0;
+}
+
+/* Button: left-aligned, compact margin, visually grouped with paragraph */
+.columns.columns14 > div > div:last-child .button {
+  border: 1.5px solid #000;
+  background: #fff;
+  color: #000;
+  box-shadow: none;
+  outline: none;
+  border-radius: 100rem;
+  font-family: var(--body-font-family);
+  font-size: 0.95rem;
+  font-weight: 400;
+  text-transform: lowercase;
+  padding: 0.6em 2em;
+  margin: 0;
+  align-self: flex-start;
+  transition: background 0.2s, color 0.2s;
+}
+
+.columns.columns14 > div > div:last-child .button:hover,
+.columns.columns14 > div > div:last-child .button:focus {
+  background: #000;
+  color: #fff;
 }
