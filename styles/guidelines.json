@@ -1,0 +1,149 @@
+{
+    "0": {
+      "element": "a.button",
+      "property": "padding",
+      "value": "1em 1.5em", 
+      "context": "Apply padding: 1em 1.5em to a.button elements",
+      "description": "Applies ample padding for accessibility and visual balance, matching the inset box-shadow style."
+    },
+    "1": {
+      "element": ".button, .secondary-button",
+      "property": "background-color",
+      "value": "transparent",
+      "context": "Apply background-color: transparent to .button and .secondary-button elements", 
+      "description": "Applies a fully transparent background, allowing the border and box-shadow to define button styling."
+    },
+    "2": {
+      "element": "button, .button, a.button",
+      "property": "font-family",
+      "value": "var(--body-font-family)",
+      "context": "Apply font-family: var(--body-font-family) to button elements",
+      "description": "Ensures consistency with the body font, providing a clean and unified text appearance across UI elements."
+    },
+    "3": {
+      "element": "a.button",
+      "property": "box-sizing",
+      "value": "border-box",
+      "context": "Apply box-sizing: border-box to a.button elements",
+      "description": "Ensures padding and border are included in the button's total width and height, preventing layout shifts."
+    },
+    "4": {
+      "element": ".button-group",
+      "property": "justify-content",
+      "value": "center",
+      "context": "Apply justify-content: center to .button-group elements",
+      "description": "Centers the button group within its container, drawing user attention to primary actions and maintaining balanced visual structure on the page."
+    },
+    "5": {
+      "element": "button, .button, a.button",
+      "property": "cursor",
+      "value": "pointer",
+      "context": "Apply cursor: pointer to button elements",
+      "description": "Indicates interactivity, providing clear affordance for clickable elements."
+    },
+    "6": {
+      "element": "a.button",
+      "property": "font-size",
+      "value": "16px",
+      "context": "Apply font-size: 16px to a.button elements",
+      "description": "Maintains legibility and accessibility by setting a minimum font size of 16px for button text."
+    },
+    "7": {
+      "element": "button, .button, a.button",
+      "property": "border-radius",
+      "value": "100rem",
+      "context": "Apply border-radius: 100rem to button elements",
+      "description": "Applies a fully rounded pill-style shape, offering a friendly and modern visual design."
+    },
+    "8": {
+      "element": "a.button, a.secondary-button",
+      "property": "display",
+      "value": "inline-block",
+      "context": "Apply display: inline-block to a.button and a.secondary-button elements",
+      "description": "Ensures buttons are rendered as discrete, clickable elements with proper box model, supporting padding and margin for touch targets."
+    },
+    "9": {
+      "element": "button, .button, a.button",
+      "property": "outline",
+      "value": "none",
+      "context": "Apply outline: none to button elements",
+      "description": "Removes native outline styling to allow for custom focus styles using box-shadow instead."
+    },
+    "10": {
+      "element": "a.button, a.secondary-button",
+      "property": "background-color",
+      "value": "transparent",
+      "context": "Apply background-color: transparent to a.button and a.secondary-button elements",
+      "description": "Uses transparent backgrounds for ghost/outline button styles that rely on border and shadow for visual definition."
+    },
+    "11": {
+      "element": "button, .button, a.button",
+      "property": "background-color",
+      "value": "transparent",
+      "context": "Apply background-color: transparent to button elements",
+      "description": "Creates a clean, minimal button style where background is defined by effects like box-shadow instead of solid fills."
+    },
+    "12": {
+      "element": "button, .button, a.button",
+      "property": "font-family",
+      "value": "var(--body-font-family)",
+      "context": "Apply font-family: var(--body-font-family) to button elements",
+      "description": "Uses the same typeface as body text to maintain design consistency and readability."
+    },
+    "13": {
+      "element": "button, .button, a.button",
+      "property": "box-shadow",
+      "value": "0 0 0 2px #000 inset, 4px 4px 0 #f4fe8b80",
+      "context": "Apply box-shadow: 0 0 0 2px #000 inset, 4px 4px 0 #f4fe8b80 to button elements",
+      "description": "Adds inset and offset shadows to create a tactile, interactive look that matches the brand's playful visual language."
+    },
+    "14": {
+      "element": "button:disabled, .button:disabled, a.button:disabled",
+      "property": "opacity",
+      "value": "0.5",
+      "context": "Apply opacity: 0.5 to disabled button elements",
+      "description": "Visually communicates disabled state, reducing confusion and preventing interaction."
+    },
+    "15": {
+      "element": ".button, .secondary-button",
+      "property": "align-items",
+      "value": "center",
+      "context": "Apply align-items: center to .button and .secondary-button elements",
+      "description": "Vertically centers button text and icons, ensuring optimal legibility and touch comfort."
+    },
+    "16": {
+      "element": ".button-group",
+      "property": "column-gap",
+      "value": "8px",
+      "context": "Apply column-gap: 8px to .button-group elements",
+      "description": "Provides clear and consistent spacing between adjacent buttons, improving readability and preventing accidental mis-taps on touch devices."
+    },
+    "17": {
+      "element": "a.button",
+      "property": "min-width",
+      "value": "120px",
+      "context": "Apply min-width: 120px to a.button elements",
+      "description": "A minimum width ensures the button remains visually balanced and easily tappable, regardless of text length."
+    },
+    "18": {
+      "element": "a.button",
+      "property": "background-color",
+      "value": "transparent",
+      "context": "Apply background-color: transparent to a.button elements",
+      "description": "Creates a ghost button look where the emphasis is placed on the outline and text color rather than solid fill."
+    },
+    "19": {
+      "element": "button, .button, a.button",
+      "property": "padding",
+      "value": "1em 1.5em",
+      "context": "Apply padding: 1em 1.5em to button elements",
+      "description": "Increases the clickable area and visual weight of the button, aligning with the inset box-shadow style."
+    },
+    "20": {
+      "element": "button, .button, a.button",
+      "property": "color",
+      "value": "#000",
+      "context": "Apply color: #000 to button elements",
+      "description": "Ensures button text is visible by default, especially when using transparent backgrounds."
+    }
+}
