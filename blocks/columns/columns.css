@@ -1,13 +1,16 @@
 /* stylelint-disable no-descending-specificity */
 .columns > div {
-  display: grid;
-  flex-direction: column;
+  display: flex;
+  flex-direction: row;
   grid-template-columns: minmax(260px, 1.2fr) repeat(3, 1fr);
-  gap: 64px;
+  gap: 1.2vw;
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 72px;
+  margin: 0;
+  padding: 0 1.8vw;
   align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 1px;
 }
 
 .columns img {
@@ -1203,10 +1206,11 @@
 
 
 .columns {
-  background: #FAFAF6;
-  color: #181818;
-  font-family: 'Instrument Sans', Montserrat, Arial, sans-serif;
-  padding: 96px 0;
+  background: #f9faf6;
+  color: #222;
+  font-family: Inter, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
 }
 
 .columns h1, 
@@ -1228,20 +1232,20 @@
 .columns ul li a {
   text-decoration: none;
   transition: color 0.15s;
-  display: block;
-  color: #181818;
-  font-family: 'Instrument Sans', Arial, sans-serif;
-  font-size: 1.18rem;
+  display: inline-block;
+  color: #222;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 13px;
   font-weight: 400;
-  letter-spacing: 0.01em;
-  line-height: 1.7;
+  letter-spacing: 0;
+  line-height: 1.5;
   margin: 0;
   padding: 0;
 }
 
 .columns ul li a:hover,
 .columns ul li a:focus {
-  color: #666;
+  color: #444;
   text-decoration: underline;
 }
 
@@ -1262,11 +1266,11 @@
 }
 
 .columns h2 {
-  font-family: Montserrat, Syncopate, Arial, sans-serif;
-  font-size: 2.25rem;
-  font-weight: 700;
-  color: #181818;
-  margin: 0 0 32px;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #222;
+  margin: 0 0 7px;
   letter-spacing: 0;
   text-transform: none;
   line-height: 1.1;
@@ -1279,7 +1283,8 @@
 }
 
 .columns ul li {
-  margin: 0 0 24px;
+  margin: 0 0 2px;
+  padding: 0;
 }
 
 .columns ul li:last-child {
@@ -1289,7 +1294,11 @@
 .columns > div > div:first-child {
   padding-top: 40px;
   align-items: flex-start;
-  min-width: 240px;
+  min-width: 140px;
+  flex: 0 0 185px;
+  max-width: 210px;
+  box-sizing: border-box;
+  /* Removed conflicting shorthand padding */
 }
 
 .columns > div > div:first-child > p {
@@ -1299,9 +1308,11 @@
 .columns > div > div:first-child ul {
   display: flex;
   flex-flow: row wrap;
-  gap: 34px;
-  margin: 28px 0 0;
+  gap: 4px;
+  margin: 4px 0 0;
   margin-bottom: 32px;
+  flex-direction: row;
+  padding: 0;
 }
 
 .columns > div > div:first-child ul li {
@@ -1323,17 +1334,21 @@
 
 .columns .button-container .button,
 .columns .button {
-  font-family: Montserrat, Syncopate, Arial, sans-serif;
+  font-family: Inter, Arial, sans-serif;
   font-weight: 500;
-  font-size: 1.15rem;
-  padding: 16px 40px;
+  font-size: 13px;
+  padding: 5px 20px;
   border-radius: 999px;
-  border: 2px solid #181818;
-  background: #FAFAF6;
-  color: #181818;
-  box-shadow: none;
+  border: 1px solid #222;
+  background: transparent;
+  color: #222;
+  box-shadow: 0 2px 0 0 #ffc;
   margin-top: 36px;
   margin-bottom: 0;
+  /* Removed conflicting shorthand margin */
+  line-height: 1.2;
+  display: inline-block;
+  vertical-align: middle;
   transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 
@@ -1432,7 +1447,6 @@
   box-sizing: border-box;
 }
 
-/* Layout: two columns side by side, perfectly centered vertically */
 .columns.columns32 > div {
   display: flex;
   flex-direction: row;
@@ -1446,7 +1460,6 @@
   box-sizing: border-box;
 }
 
-/* Responsive: stack columns vertically */
 @media (width <= 900px) {
   .columns.columns32 > div {
     flex-direction: column;
@@ -1456,7 +1469,6 @@
   }
 }
 
-/* Left: Image column */
 .columns.columns32 .columns-img-col {
   display: flex;
   align-items: center;
@@ -1478,7 +1490,6 @@
   height: auto;
 }
 
-/* Ensure image remains large and centered on desktop */
 @media (width <= 650px) {
   .columns.columns32 .columns-img-col {
     min-width: 0;
@@ -1492,7 +1503,6 @@
   }
 }
 
-/* Right: Text column and all inner elements */
 .columns.columns32 > div > div:not(.columns-img-col) {
   display: flex;
   flex-direction: column;
@@ -1503,7 +1513,6 @@
   gap: 0;
 }
 
-/* Remove default margin/padding for child blocks */
 .columns.columns32 > div > div:not(.columns-img-col) > p,
 .columns.columns32 > div > div:not(.columns-img-col) > h2 {
   margin: 0;
@@ -1521,7 +1530,6 @@
   margin-top: 0;
 }
 
-/* "Trend Report" pill badge */
 .columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(2) {
   display: inline-block;
   background: #f3f3f3;
@@ -1538,7 +1546,6 @@
   align-self: flex-start;
 }
 
-/* Headline styling */
 .columns.columns32 > div > div:not(.columns-img-col) > h2 {
   font-family: Orbitron, Montserrat, Arial, sans-serif;
   font-size: 2.4rem;
@@ -1550,8 +1557,6 @@
   max-width: 420px;
   word-wrap: break-word;
 }
-
-/* Meta info: group into a horizontal row */
 
 .columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(4),
 .columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(5),
@@ -1568,7 +1573,6 @@
   vertical-align: middle;
 }
 
-/* Add horizontal spacing between meta info items except the last */
 .columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(4),
 .columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(5),
 .columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(6),
@@ -1580,7 +1584,6 @@
   margin-right: 0;
 }
 
-/* Tighten vertical spacing between text blocks */
 .columns.columns32 > div > div:not(.columns-img-col) > *:not(:last-child) {
   margin-bottom: 0;
 }
@@ -1603,5 +1606,73 @@
   .columns.columns32 > div > div:not(.columns-img-col) > h2 {
     font-size: 1.02rem;
     margin-bottom: 10px;
+  }
+}
+
+/* Layout: Four columns side by side, tightly packed, top-aligned */
+
+/* Limit the width of the first column to match the compact original */
+
+/* Other columns flex equally */
+.columns > div > div:not(:first-child) {
+  flex: 1 1 0;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* Typography */
+
+/* Button styles for compact pill look and yellow glow */
+
+.columns .button-container {
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+.columns p {
+  margin: 0 0 4px;
+  color: #222;
+  font-size: 13px;
+  font-family: Inter, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+/* Social icons row: flex, tightly packed */
+
+/* Social icon images: small and dark */
+.columns > div > div:first-child img {
+  height: 18px;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 0;
+  filter: brightness(0) saturate(100%) invert(0) sepia(0) hue-rotate(0deg);
+}
+
+/* Responsive: stack columns vertically */
+@media (width <= 950px) {
+  .columns > div {
+    gap: 8px;
+    padding: 0 2vw;
+    flex-wrap: wrap;
+  }
+
+  .columns > div > div:first-child {
+    flex: 1 1 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (width <= 700px) {
+  .columns > div {
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 3vw;
+  }
+
+  .columns > div > div {
+    min-width: 0;
+    max-width: 100%;
   }
 }
