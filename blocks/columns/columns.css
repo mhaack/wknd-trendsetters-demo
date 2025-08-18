@@ -490,7 +490,6 @@
   line-height: 1.05;
   font-weight: 700;
   letter-spacing: -0.02em;
-  word-break: break-word;
   overflow-wrap: break-word;
 }
 
@@ -1210,7 +1209,6 @@
   padding: 96px 0;
 }
 
-/* Make all text and links inside columns dark for contrast */
 .columns h1, 
 .columns h2, 
 .columns h3, 
@@ -1247,9 +1245,6 @@
   text-decoration: underline;
 }
 
-/* Main grid layout: 4 columns, left column slightly narrower for visual balance */
-
-/* Responsive grid */
 @media (width <= 1100px) {
   .columns > div {
     gap: 36px;
@@ -1266,9 +1261,6 @@
   }
 }
 
-/* Each column stack children vertically */
-
-/* Headings: bold, dark, clear */
 .columns h2 {
   font-family: Montserrat, Syncopate, Arial, sans-serif;
   font-size: 2.25rem;
@@ -1280,7 +1272,6 @@
   line-height: 1.1;
 }
 
-/* List styling for nav columns */
 .columns ul {
   list-style: none;
   margin: 0;
@@ -1295,7 +1286,6 @@
   margin-bottom: 0;
 }
 
-/* First column: left alignment, more padding, wider icon row */
 .columns > div > div:first-child {
   padding-top: 40px;
   align-items: flex-start;
@@ -1306,7 +1296,6 @@
   margin: 0 0 36px;
 }
 
-/* Social icons row */
 .columns > div > div:first-child ul {
   display: flex;
   flex-flow: row wrap;
@@ -1315,14 +1304,12 @@
   margin-bottom: 32px;
 }
 
-/* Social icon alignment and size */
 .columns > div > div:first-child ul li {
   margin: 0;
   display: flex;
   align-items: center;
 }
 
-/* Make SVG and IMG icons dark by using filter */
 .columns > div > div:first-child img,
 .columns > div > div:first-child svg {
   width: 46px;
@@ -1334,9 +1321,6 @@
   filter: brightness(0) saturate(100%) invert(0) sepia(0) hue-rotate(0deg);
 }
 
-/* Add more vertical breathing room after icons */
-
-/* Button style override */
 .columns .button-container .button,
 .columns .button {
   font-family: Montserrat, Syncopate, Arial, sans-serif;
@@ -1362,7 +1346,6 @@
   border-color: #181818;
 }
 
-/* Caption/small text */
 .columns small,
 .columns .small,
 .columns > div > div:first-child > p:last-of-type {
@@ -1372,7 +1355,6 @@
   margin-bottom: 0;
 }
 
-/* Responsive tweaks for headings and icons */
 @media (width <= 900px) {
   .columns h2 {
     font-size: 1.4rem;
@@ -1397,6 +1379,44 @@
   }
 
   .columns > div > div:first-child ul {
+    gap: 18px;
+  }
+}
+
+
+.columns.columns29 > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.columns.columns29 .columns-img-col {
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.columns.columns29 .columns-img-col img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+@media (width <= 900px) {
+  .columns.columns29 > div {
+    grid-template-columns: 1fr;
     gap: 18px;
   }
 }
