@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -43,5 +44,137 @@
 @media (width >= 900px) {
   .hero {
     padding: 40px 32px;
+  }
+}
+
+.hero.hero5 {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: none;
+}
+
+.hero.hero5 > div {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 0;
+  box-sizing: border-box;
+  display: flex;
+  position: relative;
+}
+
+.hero.hero5 > div:first-child {
+  order: 2;
+  justify-content: flex-end;
+  align-items: stretch;
+  padding: 0;
+  background: none;
+}
+
+.hero.hero5 > div:first-child > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.hero.hero5 > div:first-child picture,
+.hero.hero5 > div:first-child img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  object-position: 60% center;
+  display: block;
+}
+
+.hero.hero5 > div:last-child {
+  order: 1;
+  background: #fff;
+  justify-content: flex-start;
+  align-items: stretch;
+  padding: 0 6vw;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.hero.hero5 > div:last-child > div {
+  width: 100%;
+  max-width: 480px;
+  margin-top: auto;
+  margin-bottom: 2.5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero.hero5 h2 {
+  font-family: var(--heading-font-family);
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #000;
+  margin: 0 0 1.2rem;
+  line-height: 1.1;
+}
+
+.hero.hero5 p {
+  font-family: var(--body-font-family);
+  font-size: 1.125rem;
+  color: #333;
+  margin: 0 0 2.2rem;
+  line-height: 1.6;
+}
+
+.hero.hero5 .button-container {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.hero.hero5 .button-container .button {
+  padding: 0.75em 2.2em;
+  border: 1px solid #000;
+  border-radius: 2em;
+  background: #fff;
+  color: #000;
+  font-size: 1rem;
+  font-family: var(--body-font-family);
+  font-weight: 500;
+  box-shadow: none;
+}
+
+@media (width <= 900px) {
+  .hero.hero5 {
+    flex-direction: column;
+    width: 100%;
+    min-height: auto;
+  }
+
+  .hero.hero5 > div,
+  .hero.hero5 > div:first-child > div,
+  .hero.hero5 > div:first-child picture,
+  .hero.hero5 > div:first-child img {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+  }
+
+  .hero.hero5 > div:last-child {
+    padding: 2rem 1rem;
+    width: 100%;
+    height: auto;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .hero.hero5 > div:last-child > div {
+    max-width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
