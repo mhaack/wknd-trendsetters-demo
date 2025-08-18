@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -24,4 +25,160 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+}
+
+
+.cards.cards2 {
+  background: #fff;
+  padding: 48px 32px;
+  border-radius: 0;
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Use grid to create two columns: left for feature card, right for stacked list */
+.cards.cards2 > ul {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 0 54px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: start;
+}
+
+.cards.cards2 > ul > li {
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  min-width: 0;
+}
+
+/* Left/Main Card spans left column, all rows */
+.cards.cards2 > ul > li:first-child {
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 620px;
+}
+
+.cards.cards2 > ul > li:first-child .cards-card-image img,
+.cards.cards2 > ul > li:first-child .cards-card-image picture {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 22px;
+  object-fit: cover;
+}
+
+/* Main Card Body */
+.cards.cards2 > ul > li:first-child .cards-card-body p:first-child {
+  display: inline-block;
+  background: #f7f7f7;
+  color: #333;
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  border-radius: 16px;
+  padding: 4px 18px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+
+.cards.cards2 > ul > li:first-child .cards-card-body h3 {
+  font-family: var(--heading-font-family);
+  font-size: 2.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222;
+  margin: 0 0 10px;
+  line-height: 1.08;
+  letter-spacing: 0.01em;
+}
+
+.cards.cards2 > ul > li:first-child .cards-card-body p:last-child {
+  font-size: 1.08rem;
+  color: #444;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Right column: stack all other cards vertically */
+.cards.cards2 > ul > li:not(:first-child) {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 0;
+  min-width: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.cards.cards2 > ul > li:not(:first-child) .cards-card-body:first-child:empty {
+  display: none;
+}
+
+.cards.cards2 > ul > li:not(:first-child) .cards-card-body {
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards2 > ul > li:not(:first-child) .cards-card-body h3 {
+  font-family: var(--heading-font-family);
+  font-size: 1.13rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222;
+  margin: 0 0 6px;
+  letter-spacing: 0.02em;
+}
+
+.cards.cards2 > ul > li:not(:first-child) .cards-card-body p {
+  font-size: 0.98rem;
+  color: #555;
+  margin: 0;
+}
+
+/* Add divider between right cards, except last one */
+.cards.cards2 > ul > li:not(:first-child, :last-child) {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 22px;
+}
+
+.cards.cards2 > ul > li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Responsive: stack columns on smaller screens */
+@media (width <= 900px) {
+  .cards.cards2 {
+    padding: 28px 8px;
+  }
+
+  .cards.cards2 > ul {
+    grid-template-columns: 1fr;
+    gap: 32px 0;
+  }
+
+  .cards.cards2 > ul > li:first-child,
+  .cards.cards2 > ul > li:not(:first-child) {
+    max-width: none;
+    grid-column: 1;
+  }
+}
+
+.cards.cards2 img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
