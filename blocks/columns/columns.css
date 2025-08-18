@@ -482,7 +482,7 @@
   font-weight: 700;
   letter-spacing: -0.02em;
   word-break: break-word;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
 }
 
 .columns.columns11 > div:first-child > div:last-child {
@@ -595,7 +595,6 @@
   margin-top: 0;
 }
 
-/* Responsive: Stack columns vertically on small screens */
 @media (width <= 900px) {
   .columns.columns14 > div {
     flex-direction: column;
@@ -605,7 +604,6 @@
   }
 }
 
-/* Slightly widen right column for more natural text wrapping */
 .columns.columns14 > div > div:first-child {
   flex: 1.13 1 0%;
   min-width: 0;
@@ -623,7 +621,6 @@
   margin-top: 0;
 }
 
-/* Heading: bold, large, generous space below */
 .columns.columns14 > div > div:first-child h2 {
   font-family: var(--heading-font-family);
   font-size: var(--heading-font-size-xl);
@@ -637,9 +634,6 @@
   overflow-wrap: break-word;
 }
 
-/* Right column: smaller vertical gap, group paragraph + button visually */
-
-/* Paragraph: left aligned, tighter lines */
 .columns.columns14 > div > div:last-child p {
   font-size: 1rem;
   color: #000;
@@ -649,13 +643,11 @@
   padding: 0;
 }
 
-/* Button container: remove extra margin */
 .columns.columns14 > div > div:last-child .button-container {
   margin: 0;
   padding: 0;
 }
 
-/* Button: left-aligned, compact margin, visually grouped with paragraph */
 .columns.columns14 > div > div:last-child .button {
   border: 1.5px solid #000;
   background: #fff;
@@ -677,4 +669,131 @@
 .columns.columns14 > div > div:last-child .button:focus {
   background: #000;
   color: #fff;
+}
+
+
+.columns.columns15 {
+  background: #f6f7f3;
+  padding: 84px 0 56px; /* More top padding for better breathing room */
+}
+
+.columns.columns15 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 88px; /* More separation between text and image columns */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.columns.columns15 > div > div:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 24px;
+  max-width: 440px; /* More compact text block */
+  flex: 1 1 0;
+}
+
+.columns.columns15 h1 {
+  font-family: Syncopate, var(--heading-font-family), sans-serif;
+  font-size: 4rem;
+  font-weight: 400;
+  line-height: 0.98;
+  color: #141414;
+  margin: 0;
+  letter-spacing: 0;
+  width: 100%;
+}
+
+.columns.columns15 p:not(.button-container) {
+  color: #818181;
+  font-size: 1.125rem;
+  margin: 0;
+  width: 100%;
+}
+
+.columns.columns15 .button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin: 0;
+  width: 100%;
+}
+
+.columns.columns15 .button-container .button,
+.columns.columns15 .button,
+.columns.columns15 a.button {
+  background: #fff;
+  color: #141414;
+  border-radius: 999px;
+  border: 1.5px solid #141414;
+  padding: 0.75em 2.2em;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 500;
+  box-shadow: 0 1px 8px rgb(20 20 20 / 3%);
+  transition: border 0.2s, box-shadow 0.2s;
+  margin: 0;
+}
+
+.columns.columns15 .columns-img-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  max-width: 380px; /* Smaller image column for increased right whitespace */
+  flex: 1 1 0;
+}
+
+.columns.columns15 .columns-img-col img,
+.columns.columns15 .columns-img-col picture {
+  width: 100%;
+  max-width: 380px; /* Slightly reduced for more air on right */
+  border-radius: 32px;
+  box-shadow: 0 4px 24px rgb(20 20 20 / 10%);
+  display: block;
+  background: #fff;
+  object-fit: cover;
+}
+
+/* Responsive: stack on smaller screens */
+@media (width <= 900px) {
+  .columns.columns15 > div {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 40px;
+    padding: 0 16px;
+  }
+
+  .columns.columns15 > div > div:first-child,
+  .columns.columns15 .columns-img-col {
+    max-width: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: auto;
+  }
+
+  .columns.columns15 .columns-img-col img,
+  .columns.columns15 .columns-img-col picture {
+    max-width: 100%;
+  }
+
+  .columns.columns15 {
+    padding: 32px 0;
+  }
+}
+
+@media (width >= 1400px) {
+  .columns.columns15 {
+    padding: 108px 0 96px;
+  }
+
+  .columns.columns15 > div {
+    gap: 112px;
+    padding: 0 96px;
+  }
 }
