@@ -1420,3 +1420,188 @@
     gap: 18px;
   }
 }
+
+
+.columns.columns32 {
+  background: #fff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Layout: two columns side by side, perfectly centered vertically */
+.columns.columns32 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-width: 1100px;
+  width: 100%;
+  gap: 32px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* Responsive: stack columns vertically */
+@media (width <= 900px) {
+  .columns.columns32 > div {
+    flex-direction: column;
+    gap: 28px;
+    max-width: 98vw;
+    padding: 0 5vw;
+  }
+}
+
+/* Left: Image column */
+.columns.columns32 .columns-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 350px;
+  max-width: 440px;
+  width: 410px;
+}
+
+.columns.columns32 .columns-img-col img {
+  width: 100%;
+  max-width: 430px;
+  aspect-ratio: 4/3;
+  border-radius: 26px;
+  display: block;
+  box-shadow: 0 4px 32px rgb(0 0 0 / 8%);
+  background: #eee;
+  object-fit: cover;
+  height: auto;
+}
+
+/* Ensure image remains large and centered on desktop */
+@media (width <= 650px) {
+  .columns.columns32 .columns-img-col {
+    min-width: 0;
+    width: 100%;
+    max-width: 99vw;
+  }
+
+  .columns.columns32 .columns-img-col img {
+    max-width: 98vw;
+    border-radius: 14px;
+  }
+}
+
+/* Right: Text column and all inner elements */
+.columns.columns32 > div > div:not(.columns-img-col) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 320px;
+  max-width: 540px;
+  gap: 0;
+}
+
+/* Remove default margin/padding for child blocks */
+.columns.columns32 > div > div:not(.columns-img-col) > p,
+.columns.columns32 > div > div:not(.columns-img-col) > h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns32 > div > div:not(.columns-img-col) > p:first-child {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 1rem;
+  color: #b1b1b1;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  font-weight: 500;
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+
+/* "Trend Report" pill badge */
+.columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(2) {
+  display: inline-block;
+  background: #f3f3f3;
+  color: #3D3D3D;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 4px 18px;
+  border-radius: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 12px;
+  margin-top: 0;
+  align-self: flex-start;
+}
+
+/* Headline styling */
+.columns.columns32 > div > div:not(.columns-img-col) > h2 {
+  font-family: Orbitron, Montserrat, Arial, sans-serif;
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: #222;
+  line-height: 1.07;
+  letter-spacing: 0.01em;
+  margin: 6px 0 18px;
+  max-width: 420px;
+  word-wrap: break-word;
+}
+
+/* Meta info: group into a horizontal row */
+
+.columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(4),
+.columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(5),
+.columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(6),
+.columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(7),
+.columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(8) {
+  display: inline;
+  color: #b1b1b1;
+  font-size: 1rem;
+  font-family: Inter, Arial, sans-serif;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.2;
+  vertical-align: middle;
+}
+
+/* Add horizontal spacing between meta info items except the last */
+.columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(4),
+.columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(5),
+.columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(6),
+.columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(7) {
+  margin-right: 8px;
+}
+
+.columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(8) {
+  margin-right: 0;
+}
+
+/* Tighten vertical spacing between text blocks */
+.columns.columns32 > div > div:not(.columns-img-col) > *:not(:last-child) {
+  margin-bottom: 0;
+}
+
+@media (width <= 900px) {
+  .columns.columns32 > div > div:not(.columns-img-col) > h2 {
+    font-size: 1.35rem;
+    max-width: 100%;
+    margin-bottom: 14px;
+  }
+}
+
+@media (width <= 650px) {
+  .columns.columns32 > div > div:not(.columns-img-col) {
+    min-width: unset;
+    max-width: 100%;
+    gap: 0;
+  }
+
+  .columns.columns32 > div > div:not(.columns-img-col) > h2 {
+    font-size: 1.02rem;
+    margin-bottom: 10px;
+  }
+}
