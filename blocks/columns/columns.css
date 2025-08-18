@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -30,4 +31,122 @@
     flex: 1;
     order: unset;
   }
+}
+
+
+.columns.columns3 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  gap: 0;
+  padding: 0;
+}
+
+/* Remove top margin for perfect alignment */
+.columns.columns3 > div > div:first-child,
+.columns.columns3 > div > div:last-child {
+  margin-top: 0;
+}
+
+@media (width <= 900px) {
+  .columns.columns3 > div {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 32px;
+  }
+
+  .columns.columns3 > div > div:first-child,
+  .columns.columns3 > div > div:last-child {
+    margin-top: 18px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* Left column */
+.columns.columns3 > div > div:first-child {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+  margin-left: 36px;
+  margin-bottom: 0;
+}
+
+.columns.columns3 > div > div:first-child h2 {
+  font-family: var(--heading-font-family);
+  font-size: 2.8rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: #000;
+  margin: 0 0 14px;
+  line-height: 1.08;
+  text-align: left;
+}
+
+.columns.columns3 > div > div:first-child p {
+  color: #555;
+  margin: 0;
+  font-size: 1.06rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  max-width: 540px;
+}
+
+/* Right column */
+.columns.columns3 > div > div:last-child {
+  flex: 0 0 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 36px;
+  min-width: 190px;
+}
+
+/* Button stack */
+.columns.columns3 > div > div:last-child p {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Button styles for links */
+.columns.columns3 > div > div:last-child p a {
+  display: block;
+  width: 196px;
+  max-width: 100%;
+  padding: 8px 0;
+  background: #fff;
+  color: #000;
+  border: 1.5px solid #000;
+  border-radius: 999px;
+  text-align: center;
+  font-family: var(--body-font-family);
+  font-size: 1rem;
+  font-weight: 400;
+  box-sizing: border-box;
+  transition: box-shadow 0.2s, border-color 0.2s;
+  margin: 0;
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.columns.columns3 > div > div:last-child p a:first-child {
+  border-bottom: 2px solid #E9E700;
+}
+
+.columns.columns3 > div > div:last-child p a:hover {
+  box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+  background: #fafafa;
+  color: #000;
+  text-decoration: none;
 }
