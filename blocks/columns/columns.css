@@ -1663,7 +1663,6 @@
   }
 }
 
-/* Main columns wrapper: flex row, top-aligned, reduced top space */
 .columns > .columns32.block.columns-2-cols {
   display: flex;
   flex-direction: row;
@@ -1677,7 +1676,6 @@
   min-height: 540px;
 }
 
-/* Image column: remove extra height/white bg, only image present */
 .columns > .columns32.block.columns-2-cols > div:first-child {
   display: flex;
   flex-direction: column;
@@ -1690,7 +1688,6 @@
   box-shadow: none;
 }
 
-/* Only the image gets shadow/rounded corners, and fills height */
 .columns .columns-img-col {
   padding: 0;
   background: none;
@@ -1713,7 +1710,6 @@
   background: #fff;
 }
 
-/* Text column: closer to image, more space for heading */
 .columns > .columns32.block.columns-2-cols > div:last-child {
   display: flex;
   flex-direction: column;
@@ -1724,13 +1720,11 @@
   padding-top: 10px;
 }
 
-/* Headline: bigger, bolder, fills space */
 .columns > .columns32.block.columns-2-cols > div:last-child h2 {
     font-size: 1.11rem;
     margin-bottom: 10px;
   }
 
-/* Intro & tag styles */
 .columns > .columns32.block.columns-2-cols > div:last-child p {
   font-family: Montserrat, 'Instrument Sans', Arial, sans-serif;
   font-size: 1.13rem;
@@ -1764,7 +1758,6 @@
   margin-bottom: 0;
 }
 
-/* Responsive: stack vertically, image on top, less gap/padding */
 @media (width <= 950px) {
   .columns > .columns32.block.columns-2-cols {
     flex-direction: column;
@@ -1800,7 +1793,6 @@
   }
 }
 
-/* Small screens */
 @media (width <= 600px) {
   .columns > .columns32.block.columns-2-cols {
     padding: 10px 2vw 0;
@@ -1820,4 +1812,62 @@
   .columns > .columns32.block.columns-2-cols > div:last-child p {
     font-size: 0.97rem;
   }
+}
+
+
+.columns.columns38 {
+  background: #fff;
+  padding: 40px 0;
+  box-sizing: border-box;
+}
+
+.columns.columns38 > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start; /* <-- Ensures top alignment */
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  width: 100%;
+
+  /* Remove grid properties */
+}
+
+.columns.columns38 > div > .columns-img-col:nth-child(1),
+.columns.columns38 > div > .columns-img-col:nth-child(3) {
+  width: 180px;
+  height: 240px;
+  min-width: 0;
+  min-height: 0;
+  flex-shrink: 0;
+}
+
+.columns.columns38 > div > .columns-img-col:nth-child(2) {
+  width: 320px;
+  height: 320px;
+  min-width: 0;
+  min-height: 0;
+  flex-shrink: 0;
+}
+
+.columns.columns38 .columns-img-col {
+  border-radius: 24px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.columns.columns38 .columns-img-col img,
+.columns.columns38 .columns-img-col picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+  display: block;
 }
