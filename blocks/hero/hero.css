@@ -656,13 +656,11 @@
   box-sizing: border-box;
 }
 
-/* Remove empty left column (for spacing only) */
 .hero.hero35 > div:first-child {
   flex: 1 1 0;
   min-width: 0;
 }
 
-/* Use flex row inside the content wrapper to create two columns: left=text, right=button */
 .hero.hero35 > div:last-child {
   flex: 2 1 0;
   min-width: 0;
@@ -673,9 +671,6 @@
   justify-content: flex-start;
 }
 
-/* Create two columns: 
-   1. A flex column for headline/subheadline (left) 
-   2. The button container (right) */
 .hero.hero35 > div:last-child > div {
   display: flex;
   flex-direction: row;
@@ -684,7 +679,6 @@
   gap: 48px;
 }
 
-/* Group the text content in a flex column, taking up 1fr */
 .hero.hero35 > div:last-child > div > h2,
 .hero.hero35 > div:last-child > div > p:not(.button-container) {
   flex-basis: 100%;
@@ -721,9 +715,6 @@
   max-width: 430px;
 }
 
-/* If direct .text-block wrapper not present, group using :nth-child selectors */
-
-/* Button container (right side), taking up less width */
 .hero.hero35 > div:last-child > div > .button-container {
   display: flex;
   flex-direction: column;
@@ -735,7 +726,6 @@
   margin: 0;
 }
 
-/* Make sure the button is wide, centered in its container */
 .hero.hero35 .button-container .button {
   width: 100%;
   min-width: 220px;
@@ -752,7 +742,6 @@
   transition: box-shadow 0.2s;
 }
 
-/* Responsive: stack vertically on narrow screens */
 @media (width <= 900px) {
   .hero.hero35 {
     flex-direction: column;
@@ -792,5 +781,158 @@
   .hero.hero35 .button-container .button {
     max-width: 100%;
     width: 100%;
+  }
+}
+
+
+/* Remove top margin or padding on hero block and its parent to eliminate the white gap above the image */
+.hero-container,
+.hero-container > .hero-wrapper,
+.hero.hero39 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Ensure hero fills the viewport and starts at the top */
+.hero.hero39 {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  border-radius: 24px;
+  display: block;
+}
+
+/* Full background image coverage */
+.hero.hero39 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero.hero39 > div:first-child picture,
+.hero.hero39 > div:first-child picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Text block overlay: flush to top, left, visually balanced width */
+.hero.hero39 > div:last-child {
+  position: absolute;
+  z-index: 2;
+  top: 0.5vw;
+  left: 1.5vw;
+  max-width: 43vw;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: none;
+  padding: 0;
+}
+
+@media (width <= 900px) {
+  .hero.hero39 > div:last-child {
+    top: 2vw;
+    left: 4vw;
+    max-width: 94vw;
+  }
+}
+
+/* Headline: smaller, tight line height, bold and left aligned */
+.hero.hero39 h1 {
+  font-family: Syncopate, 'Syncopate Fallback', sans-serif;
+  font-size: clamp(2.1rem, 5.5vw, 5.1rem);
+  font-weight: 700;
+  line-height: 1.01;
+  color: #fff;
+  letter-spacing: 0.008em;
+  margin: 0 0 1.05rem;
+  text-shadow: 0 2px 18px rgb(0 0 0 / 22%);
+  max-width: 100%;
+}
+
+/* Paragraph: more contrast, tighter margin below for snug button fit */
+.hero.hero39 p {
+  font-size: clamp(1.09rem, 1.10vw, 1.13rem);
+  color: #fffffff2;
+  margin: 0 0 0.40rem;
+  line-height: 1.50;
+  max-width: 98%;
+  text-shadow: 0 1px 9px rgb(0 0 0 / 17%);
+}
+
+/* Button: larger, closer to text, visually bold */
+.hero.hero39 .button-container {
+  margin: 0;
+}
+
+.hero.hero39 .button,
+.hero.hero39 a.button {
+  display: inline-block;
+  background: rgb(22 22 17 / 85%);
+  color: #fff;
+  border: 2px solid #dedf96;
+  font-size: 1.15rem;
+  border-radius: 100rem;
+  padding: 1.08em 2.6em;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 17%);
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.3;
+  min-width: 135px;
+  text-shadow: none;
+  outline: none;
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
+}
+
+.hero.hero39 .button:hover,
+.hero.hero39 a.button:hover {
+  background: #fff;
+  color: #232323;
+  border-color: #232323;
+}
+
+/* Remove auto-centering from text elements */
+.hero.hero39 h1,
+.hero.hero39 p {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Mobile adjustments */
+@media (width <= 600px) {
+  .hero.hero39 {
+    min-height: 70vh;
+    height: 70vh;
+    border-radius: 0;
+  }
+
+  .hero.hero39 > div:last-child {
+    top: 2vw;
+    left: 3vw;
+    max-width: 99vw;
+    padding-right: 2vw;
+  }
+
+  .hero.hero39 h1 {
+    font-size: clamp(1.5rem, 8vw, 2.7rem);
+  }
+
+  .hero.hero39 p {
+    font-size: 1.06rem;
+  }
+
+  .hero.hero39 .button,
+  .hero.hero39 a.button {
+    font-size: 1.06rem;
+    padding: 0.88em 1.7em;
   }
 }
