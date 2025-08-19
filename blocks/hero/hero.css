@@ -353,7 +353,6 @@
   padding: 0;
 }
 
-/* --- Collage grid background, refined for edge-to-edge and no gaps --- */
 .hero.hero20.block > div:first-child {
   position: absolute;
   inset: 0;
@@ -368,7 +367,6 @@
   overflow: hidden;
 }
 
-/* Prevent "p" from acting as a block and stacking */
 .hero.hero20.block > div:first-child > div {
   display: contents;
 }
@@ -377,7 +375,6 @@
   display: contents;
 }
 
-/* Each picture as its own grid cell, maximizing coverage */
 .hero.hero20.block > div:first-child > div > p > picture {
   display: block;
   width: 100%;
@@ -386,8 +383,6 @@
   min-height: 0;
   border: none;
 }
-
-/* Assign each picture to a specific cell for 3x3 grid */
 .hero.hero20.block > div:first-child > div > p > picture:nth-child(1) { grid-area: 1 / 1 / 2 / 2; }
 .hero.hero20.block > div:first-child > div > p > picture:nth-child(2) { grid-area: 1 / 2 / 2 / 3; }
 .hero.hero20.block > div:first-child > div > p > picture:nth-child(3) { grid-area: 1 / 3 / 2 / 4; }
@@ -412,7 +407,6 @@
   pointer-events: none;
 }
 
-/* Overlay for contrast */
 .hero.hero20.block > div:first-child::after {
   display: block;
   position: absolute;
@@ -424,7 +418,6 @@
   pointer-events: none;
 }
 
-/* --- Center content stack and give vertical breathing room --- */
 .hero.hero20.block > div:last-child {
   position: absolute;
   inset: 0;
@@ -436,8 +429,6 @@
   min-height: 100vh;
   width: 100vw;
   pointer-events: auto;
-
-  /* Add extra padding to help avoid text/buttons crowding collage edges */
   padding-top: 4vh;
   padding-bottom: 4vh;
 }
@@ -466,8 +457,6 @@
   text-align: center;
   max-width: 900px;
   width: 100%;
-
-  /* Subtle text shadow for readability */
   text-shadow: 0 2px 8px rgb(0 0 0 / 23%);
 }
 
@@ -482,21 +471,17 @@
   text-shadow: 0 1px 6px rgb(0 0 0 / 22%);
 }
 
-/* Button row + more breathing room from text */
 .hero.hero20.block > div:last-child p:last-child {
   display: flex;
   gap: 1.2rem;
   justify-content: center;
   align-items: center;
   margin-top: 2.5rem;
-
-  /* Add background for extra contrast */
   background: rgb(16 16 16 / 22%);
   border-radius: 999px;
   padding: 0.35em 0.75em;
 }
 
-/* --- Buttons --- */
 .hero.hero20.block > div:last-child p:last-child a {
   display: inline-block;
   padding: 0.95em 2.5em;
@@ -537,7 +522,6 @@
   color: #fff;
 }
 
-/* --- Responsive grid tuning --- */
 @media (width <= 900px) {
   .hero.hero20.block > div:first-child {
     grid-template-columns: 1fr 1fr;
@@ -571,8 +555,94 @@
   }
 }
 
-/* --- Ensure edge-to-edge hero container --- */
 .hero-container > .hero-wrapper {
   max-width: unset;
   padding: 0;
+}
+
+.hero.hero28 {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  min-height: 60vh;
+  height: 60vh;
+  display: block;
+  overflow: hidden;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Background image container */
+.hero.hero28 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+}
+
+.hero.hero28 > div:first-child > div,
+.hero.hero28 > div:first-child picture,
+.hero.hero28 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Overlay text container - perfect vertical and horizontal centering */
+.hero.hero28 > div:last-child {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  text-align: center;
+}
+
+.hero.hero28 > div:last-child > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Heading refinements for visual match */
+.hero.hero28 h1 {
+  color: #fff;
+  font-family: Syncopate, 'Syncopate Fallback', sans-serif;
+  font-weight: 400;
+  font-size: clamp(2.5rem, 6vw, 4.2rem);
+  letter-spacing: 0.022em;
+  text-align: center;
+  line-height: 1.12;
+  margin: 0;
+  max-width: 97vw;
+  width: 100%;
+  padding: 0 0.5vw;
+
+  /* wider text with less spacing, closer to reference */
+}
+
+@media (width <= 900px) {
+  .hero.hero28 {
+    min-height: 45vh;
+    height: 45vh;
+  }
+
+  .hero.hero28 h1 {
+    font-size: clamp(2rem, 8vw, 2.7rem);
+    max-width: 99vw;
+    padding: 0 2vw;
+  }
 }
