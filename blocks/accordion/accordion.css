@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,114 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion13 {
+  background: #fff;
+  padding: 0;
+}
+
+/* Each accordion row: summary left, body right, side by side */
+.accordion.accordion13 > details.accordion-item[open] {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  border: none;
+  border-bottom: 1px solid #d6d6d6;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* Remove last divider */
+.accordion.accordion13 > details.accordion-item:last-child {
+  border-bottom: none;
+}
+
+/* Remove spacing between rows */
+.accordion.accordion13 > details + details.accordion-item {
+  margin-top: 0;
+}
+
+/* Left column: summary/question styling */
+.accordion.accordion13 summary.accordion-item-label {
+  flex: 0 1 60%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 16px 0;
+  margin: 0;
+  background: none;
+  cursor: default;
+  outline: none;
+  border: none;
+  list-style: none;
+  user-select: text;
+  position: static;
+  min-width: 0;
+}
+
+.accordion.accordion13 summary.accordion-item-label::-webkit-details-marker,
+.accordion.accordion13 summary.accordion-item-label::after {
+  display: none;
+}
+
+/* Question text style */
+.accordion.accordion13 summary.accordion-item-label p {
+  margin: 0;
+  font-family: Orbitron, Syncopate, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #666;
+  line-height: 1.1;
+  padding-right: 24px;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+/* Right column: answer styling */
+.accordion.accordion13 .accordion-item-body {
+  flex: 0 1 40%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 16px 0;
+  margin: 0;
+  background: none;
+  border: none;
+  min-width: 0;
+}
+
+.accordion.accordion13 details[open] .accordion-item-body {
+  display: flex;
+}
+
+/* Answer text style */
+.accordion.accordion13 .accordion-item-body p {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #222;
+  font-weight: 400;
+  line-height: 1.5;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+/* Responsive stacking for smaller screens */
+@media (width <= 700px) {
+  .accordion.accordion13 > details.accordion-item[open] {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .accordion.accordion13 summary.accordion-item-label,
+  .accordion.accordion13 .accordion-item-body {
+    flex-basis: 100%;
+    padding: 12px 0;
+  }
 }
