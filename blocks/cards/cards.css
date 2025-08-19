@@ -428,7 +428,7 @@
   margin: 0;
   line-height: 1.4;
   text-align: left;
-  overflow-wrap: break-word; /* Replaced deprecated 'word-break: break-word' */
+  overflow-wrap: break-word;
   max-width: none;
 }
 
@@ -1114,13 +1114,6 @@
   margin-top: 0;
 }
 
-/* Meta row for pill + time, inline and at top with small margin */
-
-/* Reduce vertical gaps between meta row, h3, and description */
-
-/* Adjust card min-height for more compact appearance */
-
-/* Responsive: stack single column and image above text on small screens */
 @media (width <= 900px) {
   .cards.cards33 > ul {
     grid-template-columns: 1fr;
@@ -1143,5 +1136,188 @@
 
   .cards.cards33 .cards-card-body {
     padding: 0;
+  }
+}
+
+
+.cards.cards37 {
+  max-width: 1000px;
+  margin: 56px auto 0;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.cards.cards37 > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  align-items: stretch;
+}
+
+.cards.cards37 > ul > li {
+  background: #fff;
+  border: none;
+  border-radius: 24px;
+  box-shadow: 0 2px 14px 0 rgb(34 35 35 / 7%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0;
+  min-height: 440px;
+}
+
+.cards.cards37 > ul > li:first-child {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 51%;
+}
+
+.cards.cards37 > ul > li:nth-child(2) {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 49%;
+}
+
+.cards.cards37 > ul > li .cards-card-image {
+  width: 100%;
+  border-radius: 24px 24px 0 0;
+  overflow: hidden;
+  margin: 0;
+  line-height: 0;
+}
+
+.cards.cards37 > ul > li:first-child .cards-card-image img {
+  width: 100%;
+  height: 215px;
+  min-height: 140px;
+  max-height: 230px;
+  object-fit: cover;
+  border-radius: 24px 24px 0 0;
+  display: block;
+}
+
+.cards.cards37 > ul > li:nth-child(2) .cards-card-image img {
+  width: 100%;
+  height: 170px;
+  min-height: 110px;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 24px 24px 0 0;
+  display: block;
+}
+
+.cards.cards37 .cards-card-body {
+  padding: 22px 28px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1 1 auto;
+}
+
+.cards.cards37 > ul > li:first-child .cards-card-body h3 {
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #222323;
+  margin: 0 0 0.85rem;
+  line-height: 1.18;
+}
+
+.cards.cards37 > ul > li:first-child .cards-card-body p {
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 1rem;
+  color: #222323;
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+/* Center the last paragraph/button horizontally */
+.cards.cards37 > ul > li:first-child .cards-card-body p:last-child {
+  display: inline-block;
+  border: 1.5px solid #222323;
+  color: #222323;
+  border-radius: 22px;
+  padding: 0.4em 1.2em;
+  background: #fff;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 1px 4px 0 rgb(34 35 35 / 4%);
+  margin: 1rem auto 0;
+  transition: background 0.18s, color 0.18s;
+}
+
+.cards.cards37 > ul > li:first-child .cards-card-body p:last-child:hover {
+  background: #222323;
+  color: #fff;
+}
+
+.cards.cards37 > ul > li:nth-child(2) .cards-card-body {
+  padding: 18px 22px 14px;
+  flex: 1 1 auto;
+}
+
+.cards.cards37 > ul > li:nth-child(2) .cards-card-body h3 {
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222323;
+  text-transform: none;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.01em;
+}
+
+.cards.cards37 > ul > li:nth-child(2) .cards-card-body p {
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 0.93rem;
+  color: #222323;
+  margin: 0;
+  line-height: 1.42;
+}
+
+@media (width <= 900px) {
+  .cards.cards37 {
+    max-width: 100%;
+    margin: 24px 0 0;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .cards.cards37 > ul {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .cards.cards37 > ul > li,
+  .cards.cards37 > ul > li:first-child,
+  .cards.cards37 > ul > li:nth-child(2) {
+    max-width: 100%;
+    flex: 1 1 100%;
+    border-radius: 16px;
+    min-height: unset;
+  }
+
+  .cards.cards37 > ul > li .cards-card-image img {
+    height: 120px;
+    min-height: 70px;
+    max-height: 130px;
+  }
+
+  .cards.cards37 .cards-card-body {
+    padding: 12px 8px 10px;
   }
 }
