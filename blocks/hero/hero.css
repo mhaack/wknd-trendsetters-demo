@@ -575,7 +575,6 @@
   box-sizing: border-box;
 }
 
-/* Background image container */
 .hero.hero28 > div:first-child {
   position: absolute;
   inset: 0;
@@ -595,7 +594,6 @@
   object-fit: cover;
 }
 
-/* Overlay text container - perfect vertical and horizontal centering */
 .hero.hero28 > div:last-child {
   position: absolute;
   inset: 0;
@@ -617,7 +615,6 @@
   height: 100%;
 }
 
-/* Heading refinements for visual match */
 .hero.hero28 h1 {
   color: #fff;
   font-family: Syncopate, 'Syncopate Fallback', sans-serif;
@@ -630,8 +627,6 @@
   max-width: 97vw;
   width: 100%;
   padding: 0 0.5vw;
-
-  /* wider text with less spacing, closer to reference */
 }
 
 @media (width <= 900px) {
@@ -644,5 +639,158 @@
     font-size: clamp(2rem, 8vw, 2.7rem);
     max-width: 99vw;
     padding: 0 2vw;
+  }
+}
+
+
+.hero.hero35 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 220px;
+  background: #fff;
+  border-bottom: 1px solid #000;
+  padding: 56px 48px;
+  box-sizing: border-box;
+}
+
+/* Remove empty left column (for spacing only) */
+.hero.hero35 > div:first-child {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* Use flex row inside the content wrapper to create two columns: left=text, right=button */
+.hero.hero35 > div:last-child {
+  flex: 2 1 0;
+  min-width: 0;
+  width: 100%;
+  max-width: 920px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Create two columns: 
+   1. A flex column for headline/subheadline (left) 
+   2. The button container (right) */
+.hero.hero35 > div:last-child > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  gap: 48px;
+}
+
+/* Group the text content in a flex column, taking up 1fr */
+.hero.hero35 > div:last-child > div > h2,
+.hero.hero35 > div:last-child > div > p:not(.button-container) {
+  flex-basis: 100%;
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.hero.hero35 > div:last-child > div > .text-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.hero.hero35 > div:last-child > div > h2 {
+  font-family: var(--heading-font-family);
+  font-weight: 400;
+  font-size: 2.8rem;
+  letter-spacing: 0;
+  color: #131313;
+  line-height: 1.1;
+  margin: 0 0 12px;
+  max-width: 430px;
+}
+
+.hero.hero35 > div:last-child > div > p:not(.button-container) {
+  color: #666;
+  font-size: 1.05rem;
+  margin: 0;
+  font-family: var(--body-font-family);
+  max-width: 430px;
+}
+
+/* If direct .text-block wrapper not present, group using :nth-child selectors */
+
+/* Button container (right side), taking up less width */
+.hero.hero35 > div:last-child > div > .button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+  max-width: 380px;
+  width: 100%;
+  margin: 0;
+}
+
+/* Make sure the button is wide, centered in its container */
+.hero.hero35 .button-container .button {
+  width: 100%;
+  min-width: 220px;
+  max-width: 340px;
+  padding: 14px 0;
+  font-size: 1rem;
+  border-radius: 100rem;
+  text-align: center;
+  background: #fff;
+  color: #131313;
+  border: 1.5px solid #111;
+  box-shadow: 0 2px 0 0 #f4fe8b80;
+  margin: 0;
+  transition: box-shadow 0.2s;
+}
+
+/* Responsive: stack vertically on narrow screens */
+@media (width <= 900px) {
+  .hero.hero35 {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 32px 16px;
+    min-height: unset;
+  }
+
+  .hero.hero35 > div:first-child {
+    display: none;
+  }
+
+  .hero.hero35 > div:last-child {
+    max-width: 100%;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero.hero35 > div:last-child > div {
+    flex-direction: column;
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .hero.hero35 > div:last-child > div > h2,
+  .hero.hero35 > div:last-child > div > p:not(.button-container) {
+    max-width: 100%;
+  }
+
+  .hero.hero35 > div:last-child > div > .button-container {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .hero.hero35 .button-container .button {
+    max-width: 100%;
+    width: 100%;
   }
 }
