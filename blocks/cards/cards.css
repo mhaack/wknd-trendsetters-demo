@@ -1140,23 +1140,10 @@
 }
 
 
-.cards.cards37 {
-  max-width: 1000px;
-  margin: 56px auto 0;
-  padding: 0;
-  background: none;
-  box-shadow: none;
-  border-radius: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: stretch;
-}
-
 .cards.cards37 > ul {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 26px;
   width: 100%;
   padding: 0;
   margin: 0;
@@ -1164,142 +1151,146 @@
   align-items: stretch;
 }
 
+/* Left card is more dominant */
+.cards.cards37 > ul > li:first-child {
+  flex: 1.22 1 0;
+  max-width: 60%;
+}
+
+.cards.cards37 > ul > li:nth-child(2) {
+  flex: 1 1 0;
+  max-width: 40%;
+}
+
+/* Card container styles */
 .cards.cards37 > ul > li {
+  display: flex;
+  flex-direction: column;
   background: #fff;
   border: none;
   border-radius: 24px;
   box-shadow: 0 2px 14px 0 rgb(34 35 35 / 7%);
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   padding: 0;
-  min-height: 440px;
+  min-height: 0;
+  height: auto;
 }
 
-.cards.cards37 > ul > li:first-child {
-  flex: 1 1 0;
-  min-width: 0;
-  max-width: 51%;
-}
-
-.cards.cards37 > ul > li:nth-child(2) {
-  flex: 1 1 0;
-  min-width: 0;
-  max-width: 49%;
-}
-
+/* Large image fills top of card, edge-to-edge, only top corners rounded */
 .cards.cards37 > ul > li .cards-card-image {
-  width: 100%;
+  display: block;
   border-radius: 24px 24px 0 0;
   overflow: hidden;
   margin: 0;
-  line-height: 0;
+  width: 100%;
+  background: #f4f4f4;
 }
 
+.cards.cards37 > ul > li .cards-card-image img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 24px 24px 0 0;
+  margin: 0;
+  aspect-ratio: unset;
+}
+
+/* Increase left image height for more drama */
 .cards.cards37 > ul > li:first-child .cards-card-image img {
-  width: 100%;
-  height: 215px;
-  min-height: 140px;
-  max-height: 230px;
-  object-fit: cover;
-  border-radius: 24px 24px 0 0;
-  display: block;
+  height: 375px;
+  min-height: 250px;
+  max-height: 420px;
 }
 
+/* Right card image slightly taller for better anchor */
 .cards.cards37 > ul > li:nth-child(2) .cards-card-image img {
-  width: 100%;
-  height: 170px;
+  height: 180px;
   min-height: 110px;
-  max-height: 180px;
-  object-fit: cover;
-  border-radius: 24px 24px 0 0;
-  display: block;
+  max-height: 220px;
 }
 
+/* Reduce body padding, tighten vertical stack */
 .cards.cards37 .cards-card-body {
-  padding: 22px 28px 18px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   flex: 1 1 auto;
+  padding: 14px 28px 18px;
+  gap: 0;
 }
 
+.cards.cards37 > ul > li .cards-card-body {
+  justify-content: flex-start;
+}
+
+/* Headings: large, uppercase, left-aligned, closer to image */
 .cards.cards37 > ul > li:first-child .cards-card-body h3 {
   font-family: Montserrat, Arial, sans-serif;
-  font-size: 1.7rem;
+  font-size: 2.35rem;
   font-weight: 700;
-  letter-spacing: 0.01em;
-  color: #222323;
-  margin: 0 0 0.85rem;
-  line-height: 1.18;
-}
-
-.cards.cards37 > ul > li:first-child .cards-card-body p {
-  font-family: Montserrat, Arial, sans-serif;
-  font-size: 1rem;
-  color: #222323;
-  margin: 0 0 1rem;
-  line-height: 1.5;
-}
-
-/* Center the last paragraph/button horizontally */
-.cards.cards37 > ul > li:first-child .cards-card-body p:last-child {
-  display: inline-block;
-  border: 1.5px solid #222323;
-  color: #222323;
-  border-radius: 22px;
-  padding: 0.4em 1.2em;
-  background: #fff;
-  font-weight: 500;
-  font-size: 1rem;
-  cursor: pointer;
-  box-shadow: 0 1px 4px 0 rgb(34 35 35 / 4%);
-  margin: 1rem auto 0;
-  transition: background 0.18s, color 0.18s;
-}
-
-.cards.cards37 > ul > li:first-child .cards-card-body p:last-child:hover {
-  background: #222323;
-  color: #fff;
-}
-
-.cards.cards37 > ul > li:nth-child(2) .cards-card-body {
-  padding: 18px 22px 14px;
-  flex: 1 1 auto;
+  text-transform: uppercase;
+  color: #191919;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.015em;
+  line-height: 1.08;
+  text-align: left;
 }
 
 .cards.cards37 > ul > li:nth-child(2) .cards-card-body h3 {
   font-family: Montserrat, Arial, sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #222323;
-  text-transform: none;
-  margin: 0 0 0.5rem;
-  letter-spacing: 0.01em;
+  font-size: 1.06rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #191919;
+  margin: 0 0 0.4rem;
+  letter-spacing: 0.018em;
+  text-align: left;
 }
 
-.cards.cards37 > ul > li:nth-child(2) .cards-card-body p {
+/* Paragraphs: tighter grouping, less bottom margin */
+.cards.cards37 > ul > li .cards-card-body p {
   font-family: Montserrat, Arial, sans-serif;
-  font-size: 0.93rem;
-  color: #222323;
-  margin: 0;
-  line-height: 1.42;
+  font-size: 1rem;
+  color: #303030;
+  margin: 0 0 0.6rem;
+  line-height: 1.5;
+  text-align: left;
 }
 
-@media (width <= 900px) {
-  .cards.cards37 {
-    max-width: 100%;
-    margin: 24px 0 0;
-    border-radius: 0;
-    box-shadow: none;
-    padding: 0;
-  }
+/* Button: closer to paragraph, minimize space above */
+.cards.cards37 > ul > li:first-child .cards-card-body p:last-child {
+  margin-top: 0.7rem;
+  margin-bottom: 0;
+  align-self: flex-start;
+  border: 1.5px solid #191919;
+  color: #191919;
+  border-radius: 23px;
+  padding: 0.5em 1.7em;
+  background: #fff;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 1px 4px 0 rgb(34 35 35 / 10%);
+  transition: background 0.18s, color 0.18s;
+}
 
+/* Button hover/focus */
+.cards.cards37 > ul > li:first-child .cards-card-body p:last-child:hover,
+.cards.cards37 > ul > li:first-child .cards-card-body p:last-child:focus {
+  background: #191919;
+  color: #fff;
+}
+
+/* Right card body: tighter padding, less white space */
+.cards.cards37 > ul > li:nth-child(2) .cards-card-body {
+  padding: 10px 18px 12px;
+}
+
+/* Responsive stacking and image scaling */
+@media (width <= 900px) {
   .cards.cards37 > ul {
     flex-direction: column;
-    gap: 12px;
-    width: 100%;
+    gap: 14px;
   }
 
   .cards.cards37 > ul > li,
@@ -1318,6 +1309,6 @@
   }
 
   .cards.cards37 .cards-card-body {
-    padding: 12px 8px 10px;
+    padding: 10px 8px;
   }
 }
