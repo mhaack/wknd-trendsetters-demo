@@ -784,8 +784,6 @@
   }
 }
 
-
-/* Remove top margin or padding on hero block and its parent to eliminate the white gap above the image */
 .hero-container,
 .hero-container > .hero-wrapper,
 .hero.hero39 {
@@ -793,7 +791,6 @@
   padding-top: 0;
 }
 
-/* Ensure hero fills the viewport and starts at the top */
 .hero.hero39 {
   position: relative;
   width: 100vw;
@@ -804,7 +801,6 @@
   display: block;
 }
 
-/* Full background image coverage */
 .hero.hero39 > div:first-child {
   position: absolute;
   inset: 0;
@@ -822,7 +818,6 @@
   display: block;
 }
 
-/* Text block overlay: flush to top, left, visually balanced width */
 .hero.hero39 > div:last-child {
   position: absolute;
   z-index: 2;
@@ -846,7 +841,6 @@
   }
 }
 
-/* Headline: smaller, tight line height, bold and left aligned */
 .hero.hero39 h1 {
   font-family: Syncopate, 'Syncopate Fallback', sans-serif;
   font-size: clamp(2.1rem, 5.5vw, 5.1rem);
@@ -859,7 +853,6 @@
   max-width: 100%;
 }
 
-/* Paragraph: more contrast, tighter margin below for snug button fit */
 .hero.hero39 p {
   font-size: clamp(1.09rem, 1.10vw, 1.13rem);
   color: #fffffff2;
@@ -869,7 +862,6 @@
   text-shadow: 0 1px 9px rgb(0 0 0 / 17%);
 }
 
-/* Button: larger, closer to text, visually bold */
 .hero.hero39 .button-container {
   margin: 0;
 }
@@ -900,14 +892,12 @@
   border-color: #232323;
 }
 
-/* Remove auto-centering from text elements */
 .hero.hero39 h1,
 .hero.hero39 p {
   margin-left: 0;
   margin-right: 0;
 }
 
-/* Mobile adjustments */
 @media (width <= 600px) {
   .hero.hero39 {
     min-height: 70vh;
@@ -934,5 +924,225 @@
   .hero.hero39 a.button {
     font-size: 1.06rem;
     padding: 0.88em 1.7em;
+  }
+}
+
+
+.hero.hero12 {
+  position: relative;
+  width: 100vw;
+  min-height: 520px;
+  border-radius: 32px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+/* Background image covers the hero */
+.hero.hero12 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero.hero12 > div:first-child picture,
+.hero.hero12 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 32px;
+}
+
+/* Overlay block: groups card image + vertical content tightly on the left */
+.hero.hero12 > div:last-child {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 340px;
+  max-width: 420px;
+  margin-left: 4vw;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+.hero.hero12 > div:last-child::before {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 32%);
+  border-radius: 28px;
+  z-index: -1;
+  box-shadow: 0 6px 24px rgb(0 0 0 / 19%);
+  pointer-events: none;
+  display: block;
+  content: "";
+}
+
+@media (width <= 900px) {
+  .hero.hero12 > div:last-child {
+    min-width: 0;
+    max-width: 100vw;
+    margin-left: 2vw;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+  }
+}
+
+/* Card image at the top of the overlay */
+.hero.hero12 > div:last-child > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  gap: 0;
+  padding: 36px 32px 32px;
+  box-sizing: border-box;
+}
+
+.hero.hero12 > div:last-child > div > p:first-child {
+  margin: 0 0 18px;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.hero.hero12 > div:last-child > div > p:first-child picture,
+.hero.hero12 > div:last-child > div > p:first-child img {
+  width: 120px;
+  height: 120px;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 4px 18px rgb(0 0 0 / 17%);
+  display: block;
+}
+
+@media (width <= 600px) {
+  .hero.hero12 > div:last-child > div > p:first-child picture,
+  .hero.hero12 > div:last-child > div > p:first-child img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+  }
+}
+
+/* Heading, list, button: vertical stack */
+.hero.hero12 > div:last-child > div > h2 {
+  color: #fff;
+  font-size: 2.7rem;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  margin: 0 0 22px;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  text-align: left;
+  text-shadow: 0 2px 12px rgb(0 0 0 / 21%);
+  max-width: 320px;
+}
+
+@media (width <= 900px) {
+  .hero.hero12 > div:last-child > div > h2 {
+    font-size: 1.5rem;
+    max-width: 100%;
+    margin-bottom: 12px;
+  }
+}
+
+/* List items: vertical stack, icon left, text right */
+.hero.hero12 > div:last-child > div > p:not(:first-child, .button-container) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.13rem;
+  color: #fff;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  line-height: 1.32;
+  background: none;
+  gap: 12px;
+  margin: 0 0 12px;
+}
+
+.hero.hero12 > div:last-child > div > p:not(:first-child, .button-container):last-of-type {
+  margin-bottom: 0;
+}
+
+.hero.hero12 > div:last-child > div > p:not(:first-child, .button-container) > img {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  filter: brightness(0) invert(1);
+  margin-bottom: 0;
+}
+
+@media (width <= 900px) {
+  .hero.hero12 > div:last-child > div > p:not(:first-child, .button-container) {
+    font-size: 0.98rem;
+    gap: 7px;
+  }
+
+  .hero.hero12 > div:last-child > div > p:not(:first-child, .button-container) > img {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Button grouped at bottom of content column */
+.hero.hero12 > div:last-child > div > .button-container {
+  margin-top: 18px;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.hero.hero12 > div:last-child > div > .button-container .button,
+.hero.hero12 > div:last-child > div > .button-container a.button {
+  background: transparent;
+  border: 1.4px solid #fff;
+  border-radius: 100px;
+  color: #fff;
+  font-size: 1.09rem;
+  font-family: var(--body-font-family);
+  font-weight: 600;
+  padding: 12px 36px;
+  margin: 0;
+  box-shadow: none;
+  transition: background 0.16s, color 0.16s, border 0.17s;
+}
+
+.hero.hero12 > div:last-child > div > .button-container .button:hover,
+.hero.hero12 > div:last-child > div > .button-container a.button:hover {
+  background: #fff;
+  color: #111;
+  border-color: #fff;
+}
+
+/* Responsive stacking: overlay block and image above content on mobile */
+@media (width <= 800px) {
+  .hero.hero12 {
+    flex-direction: column;
+    min-height: 0;
+    border-radius: 18px;
+  }
+
+  .hero.hero12 > div:last-child {
+    margin: 2vw auto;
+    min-width: 0;
+    max-width: 100vw;
+  }
+
+  .hero.hero12 > div:last-child > div {
+    padding: 18px 8px 16px;
+  }
+
+  .hero.hero12 > div:last-child > div > h2 {
+    margin-bottom: 8px;
   }
 }
