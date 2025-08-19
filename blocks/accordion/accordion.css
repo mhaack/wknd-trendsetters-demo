@@ -66,7 +66,6 @@
   padding: 0;
 }
 
-/* Each accordion row: summary left, body right, side by side */
 .accordion.accordion13 > details.accordion-item[open] {
   display: flex;
   flex-direction: row;
@@ -79,17 +78,14 @@
   box-sizing: border-box;
 }
 
-/* Remove last divider */
 .accordion.accordion13 > details.accordion-item:last-child {
   border-bottom: none;
 }
 
-/* Remove spacing between rows */
 .accordion.accordion13 > details + details.accordion-item {
   margin-top: 0;
 }
 
-/* Left column: summary/question styling */
 .accordion.accordion13 summary.accordion-item-label {
   flex: 0 1 60%;
   display: flex;
@@ -112,7 +108,6 @@
   display: none;
 }
 
-/* Question text style */
 .accordion.accordion13 summary.accordion-item-label p {
   margin: 0;
   font-family: Orbitron, Syncopate, Arial, sans-serif;
@@ -127,7 +122,6 @@
   overflow-wrap: break-word;
 }
 
-/* Right column: answer styling */
 .accordion.accordion13 .accordion-item-body {
   flex: 0 1 40%;
   display: flex;
@@ -144,7 +138,6 @@
   display: flex;
 }
 
-/* Answer text style */
 .accordion.accordion13 .accordion-item-body p {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -156,7 +149,6 @@
   overflow-wrap: break-word;
 }
 
-/* Responsive stacking for smaller screens */
 @media (width <= 700px) {
   .accordion.accordion13 > details.accordion-item[open] {
     flex-direction: column;
@@ -167,5 +159,121 @@
   .accordion.accordion13 .accordion-item-body {
     flex-basis: 100%;
     padding: 12px 0;
+  }
+}
+
+
+.accordion.accordion34 {
+  background-color: #FAFAF6;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  font-family: var(--body-font-family);
+  color: #222;
+}
+
+/* Ensure each details row is visible with bottom border */
+.accordion.accordion34 details {
+  display: block;
+  border: none;
+  border-bottom: 1px solid #E0E0E0;
+  margin: 0;
+  padding: 0;
+  background: #FAFAF6;
+}
+
+/* Remove last border */
+.accordion.accordion34 details:last-child {
+  border-bottom: none;
+}
+
+/* Reset .accordion-item-label to be a flex row: text left, chevron right */
+.accordion.accordion34 .accordion-item-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 48px;
+  padding-left: 24px;
+  padding-right: 24px;
+  width: 100%;
+  background: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Text: left-aligned, vertically centered, with correct sizing */
+.accordion.accordion34 .accordion-item-label p {
+  margin: 0;
+  color: #222;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: inherit;
+  flex: 1 1 auto;
+  line-height: 1.4;
+  background: none;
+  box-sizing: border-box;
+}
+
+/* Custom chevron: right side, vertically centered, no content property */
+.accordion.accordion34 .accordion-item-label::after {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: 24px;
+  border-right: 2px solid #222;
+  border-bottom: 2px solid #222;
+
+  /* down-pointing arrow shape */
+  transform: rotate(45deg);
+  transition: transform 0.2s;
+  background: none;
+  flex-shrink: 0;
+  content: "";
+}
+
+/* Rotate chevron up when open by targeting parent details[open] */
+.accordion.accordion34 details[open] .accordion-item-label::after {
+  transform: rotate(-135deg);
+}
+
+/* Remove default marker from summary */
+.accordion.accordion34 details summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Remove summary's own padding & background, since layout is handled by .accordion-item-label */
+.accordion.accordion34 details summary {
+  padding: 0;
+  background: none;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+}
+
+/* Accordion body styling: visible and padded */
+.accordion.accordion34 details .accordion-item-body {
+  padding: 16px 24px;
+  color: #333;
+  font-size: 16px;
+  font-family: inherit;
+  background-color: #FAFAF6;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  display: block;
+}
+
+/* Responsive tweaks for smaller screens */
+@media (width <= 600px) {
+  .accordion.accordion34 .accordion-item-label,
+  .accordion.accordion34 details .accordion-item-body {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .accordion.accordion34 .accordion-item-label::after {
+    margin-left: 12px;
   }
 }
