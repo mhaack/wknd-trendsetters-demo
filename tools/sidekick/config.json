@@ -1,5 +1,16 @@
 {
-  "project": "AEM XWalk Boilerplate",
-  "editUrlLabel": "AEM Editor",
-  "editUrlPattern": "{{contentSourceUrl}}{{pathname}}?cmd=open"
+  "project": "WKND Trendsetters",
+  "editUrlLabel": "Edit",
+  "editUrlPattern": "{{contentSourceUrl}}{{pathname}}?cmd=open",
+  "plugins": [
+    {
+      "id": "context-edit",
+      "title": "Inline Edit",
+      "event": "edit",
+      "environments": [
+        "preview",
+        "dev"
+      ]
+    }
+  ]
 }

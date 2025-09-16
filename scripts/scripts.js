@@ -163,3 +163,28 @@ export const NX_ORIGIN = branch === 'local' || origin.includes('localhost') ? 'h
     import(`${NX_ORIGIN}/public/plugins/exp/exp.js`);
   }
 }());
+
+const doInlineEdit = async ({ detail: payload }) => {
+  const mod = await import('./context.js');
+  if (mod && typeof mod.default === 'function') {
+    mod.default(payload);
+  }
+
+  const sk = document.querySelector('aem-sidekick');
+  if (sk) {
+    sk.setAttribute('open', 'false');
+  }
+};
+
+const sk = document.querySelector('aem-sidekick');
+if (sk) {
+  // sidekick already loaded
+    sk.addEventListener('custom:edit', doInlineEdit);
+} else {
+  // wait for sidekick to be loaded
+  document.addEventListener('sidekick-ready', () => {
+    // sidekick now loaded
+    document.querySelector('aem-sidekick')
+      .addEventListener('custom:edit', doInlineEdit);
+  }, { once: true });
+}
