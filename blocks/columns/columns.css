@@ -1292,15 +1292,6 @@
   margin-bottom: 0;
 }
 
-.columns > div > div:first-child {
-  padding-top: 40px;
-  align-items: flex-start;
-  min-width: 140px;
-  flex: 0 0 185px;
-  max-width: 210px;
-  box-sizing: border-box;
-}
-
 .columns > div > div:first-child > p {
   margin: 0 0 36px;
 }
@@ -1329,7 +1320,6 @@
   vertical-align: middle;
   border-radius: 8px;
   background: none;
-  filter: brightness(0) saturate(100%) invert(0) sepia(0) hue-rotate(0deg);
 }
 
 .columns .button-container .button,
@@ -1633,7 +1623,6 @@
   width: auto;
   vertical-align: middle;
   margin-right: 0;
-  filter: brightness(0) saturate(100%) invert(0) sepia(0) hue-rotate(0deg);
 }
 
 @media (width <= 950px) {
