@@ -1,4 +1,4 @@
 mountpoints:
   /:
-    url: https://content.da.live/aemysites/wknd-trendsetters-da-demo/
+    url: https://content.da.live/mhaack/wknd-trendsetters-demo/
     type: markup
