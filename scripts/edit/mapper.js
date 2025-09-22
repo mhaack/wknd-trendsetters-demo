@@ -81,8 +81,10 @@ export class DOMToSourceMapper {
     } else if (decoratedElement.closest('div.block')) {
       const block = decoratedElement.closest('div.block');
       const blockName = block.dataset.blockName;
-      const sourceBlock = this.sourceDoc.querySelector(`div.${blockName}`);
-      if (sourceBlock) {
+      const sourceBlocks = this.sourceDoc.querySelectorAll(`div.${blockName}`);
+      
+      // Iterate through all blocks with the same blockName
+      for (const sourceBlock of sourceBlocks) {
         let match = null;
 
         // match images by src and alt
@@ -136,6 +138,7 @@ export class DOMToSourceMapper {
           );
         }
 
+        // If we found a match in this block, break out of the loop and return it
         if (match) {
           return match;
         }
