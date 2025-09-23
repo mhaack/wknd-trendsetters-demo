@@ -40,18 +40,43 @@ export class EditableImage {
   }
 
   handleImageEdit(e) {
-    console.log('Image edit clicked', this.imgEl);
     e.stopPropagation();
+    console.log('Image edit clicked', this.imgEl);
+    const currentSrc = this.imgEl.src || '';
+    console.log('Current src', currentSrc);
+    const newSrc = window.prompt('Edit image URL:', currentSrc);
+    if (newSrc !== null && newSrc !== currentSrc) {
+        this.imgEl.src = newSrc;
+        // If the image is inside a <picture> tag, update all <source> tags as well
+        const parent = this.imgEl.parentElement;
+        if (parent && parent.tagName.toLowerCase() === 'picture') {
+          const sources = parent.querySelectorAll('source');
+          sources.forEach(source => {
+            if (source.hasAttribute('srcset')) {
+              source.setAttribute('srcset', newSrc);
+            }
+            if (source.hasAttribute('src')) {
+              source.setAttribute('src', newSrc);
+            }
+          });
+        }
+    }
   }
 
   handleImageAlt(e) {
-    console.log('Image alt clicked', this.imgEl);
     e.stopPropagation();
+    console.log('Image alt clicked', this.imgEl);
+    const currentAlt = this.imgEl.alt || '';
+    const newAlt = window.prompt('Edit image alt text:', currentAlt);
+    if (newAlt !== null) {
+      this.imgEl.alt = newAlt;
+    }
+
   }
 
   handleImageDelete(e) {
-    console.log('Image delete clicked', this.imgEl);
     e.stopPropagation();
+    console.log('Image delete clicked', this.imgEl);
   }
 
   hideOverlay() {
