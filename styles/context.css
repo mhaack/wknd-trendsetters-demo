@@ -44,27 +44,38 @@ html {
     pointer-events: all;
 }
 
-.nx-buttons button {
+.nx-buttons button,
+.nx-image-overlay button {
     background: rgb(77, 123, 255);
     color: rgb(255, 255, 255);
     border-radius: 100px;
-    border: 2px solid rgb(77, 123, 255);
-    display: inline-block;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 700;
+    border: 1px solid rgb(77, 123, 255);
     line-height: 16px;
-    padding: 5px 14px;
-    text-decoration: none;
+    padding: 5px;
+    box-shadow: unset;
+}
+
+.nx-buttons button {
     margin-left: 4px;
 }
 
-.nx-buttons button:disabled {
+.nx-buttons button:hover,
+.nx-buttons button:focus,
+.nx-image-overlay button:hover,
+.nx-image-overlay button:focus {
+    border-color: #fff;
+}
+
+.nx-buttons button:disabled,
+.nx-image-overlay button:disabled {
     opacity: 0.5;
     pointer-events: none;
 }
 
-.nx-buttons button .nx-icon {
+.nx-buttons button .nx-icon,
+.nx-image-overlay button .nx-icon {
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
     display: block;
     width: 22px;
@@ -99,7 +110,7 @@ html {
     outline: none;
 }
 
-[data-edit].is-active-edit {
+[data-edit]:not(img).is-active-edit {
     border: 1px solid #4d7bff;
 }
 
@@ -108,7 +119,8 @@ html {
 }
 
 /* Light grey overlay for active images */
-img[data-edit].is-editable {
+img[data-edit].is-editable,
+img[data-edit].is-active-edit {
     filter: blur(1px) grayscale(0.5) brightness(0.97);
     transition: filter 0.1s cubic-bezier(0.4, 0, 0.2, 1);
     background: oklch(0.97 0.014 254.604);
@@ -117,7 +129,7 @@ img[data-edit].is-editable {
 }
 
 /* Overlay icon container */
-img[data-edit].is-editable + .nx-image-overlay {
+img[data-edit].is-active-edit+.nx-image-overlay {
     position: absolute;
     background: rgba(200, 200, 200, 0.7);
     z-index: 3;
@@ -130,34 +142,17 @@ img[data-edit].is-editable + .nx-image-overlay {
     align-items: center;
     justify-content: center;
     transform: translate(-50%, -50%);
-    pointer-events: none;    
 }
 
-/* Overlay icon styles */
-.nx-image-overlay .nx-icon {
-    width: 32px;
-    height: 32px;
-    display: inline-block;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    cursor: pointer;
-}
-
+/* Overlay icon */
 .nx-image-overlay .nx-image-icon {
     background-image: url('/icons/Smock_Image_18_N.svg');
 }
 
-.nx-image-overlay .nx-delete-icon {
+.nx-image-overlay .nx-image-delete-icon {
     background-image: url('/icons/Smock_Delete_18_N.svg');
 }
 
 .nx-image-overlay .nx-image-alt-icon {
     background-image: url('/icons/Smock_ImageText_18_N.svg');
-}
-
-.nx-image-overlay .nx-image-icon:hover,
-.nx-image-overlay .nx-delete-icon:hover {
-    background-color: #f0f4ff;
-    border: 1px solid #4d7bff;
 }

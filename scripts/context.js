@@ -1,5 +1,6 @@
 import { loadCSS } from './aem.js';
 import { saveToAem, saveToDA } from './edit/actions.js';
+import { EditableImage } from './edit/image.js';
 import { DOMToSourceMapper } from './edit/mapper.js';
 
 const SECTION_SELECTOR = '.section';
@@ -75,6 +76,9 @@ function finishEdit(editable) {
     
     editable.removeAttribute('contenteditable');
     editable.classList.remove('is-active-edit');
+    if (editable.tagName === 'IMG') {
+      new EditableImage(editable).hideOverlay();
+    }
     editedElement.current = null;
   }
 }
@@ -99,14 +103,17 @@ function handleEditable(editable) {
       // Save previous edited elements and remove the styles
       const prevEditables = document.body.querySelectorAll('[contenteditable]');
       prevEditables.forEach((prev) => {
-        prev.removeAttribute('contenteditable');
-        prev.classList.remove('is-active-edit');
         finishEdit(prev);
       });
 
       // Set the editable attr and set focus
       editable.setAttribute('contenteditable', true);
       editable.classList.add('is-active-edit');
+      editable.classList.remove('is-editable');
+      if (editable.tagName === 'IMG') {
+        new EditableImage(editable).showOverlay();
+      }     
+
       setTimeout(() => {
         editable.focus();
       }, 100);
@@ -152,59 +159,17 @@ function handleSection(section) {
     const el = e.target.dataset.edit
       ? e.target
       : e.target.closest('[data-edit]');
-    if (!el ||!el.dataset.edit) return;
-    
+    if (!el ||!el.dataset.edit) return; 
+
     // update edited element
-    el.classList.add('is-editable');
+    if(!el.hasAttribute('contenteditable')) {
+      el.classList.add('is-editable');
+    }
 
     // update tree view
     label.innerHTML = '';
     const tree = getTree(el);
     setTree(tree);
-
-    // If the hovered element is an image, add the .nx-image-overlay if not present
-    if (el.nodeName === 'IMG') {
-      // Check if overlay already exists
-      let overlay = el.nextElementSibling;
-      if (!overlay || !overlay.classList.contains('nx-image-overlay')) {
-        // Create overlay container
-        overlay = document.createElement('div');
-        overlay.className = 'nx-image-overlay';
-        // Add image icon and delete icon (for demonstration, can be extended)
-        const imageIcon = document.createElement('span');
-        imageIcon.className = 'nx-icon nx-image-icon';
-        imageIcon.addEventListener('click', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          console.log('Image icon clicked');
-        });
-        overlay.appendChild(imageIcon);
-        const imageAltIcon = document.createElement('span');
-        imageAltIcon.className = 'nx-icon nx-image-alt-icon';
-        imageAltIcon.addEventListener('click', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          console.log('Image alt icon clicked');
-        });
-        overlay.appendChild(imageAltIcon);
-
-        const deleteIcon = document.createElement('span');
-        deleteIcon.className = 'nx-icon nx-delete-icon';
-        deleteIcon.addEventListener('click', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          console.log('Delete icon clicked');
-        });
-        overlay.appendChild(deleteIcon);
-        // Insert overlay after the image
-        el.parentNode.insertBefore(overlay, el.nextSibling);
-
-        // Get the display width and height of the image
-        const rect = el.getBoundingClientRect();
-        overlay.style.left = `${el.offsetLeft + el.offsetWidth / 2}px`;
-        overlay.style.top = `${el.offsetTop + el.offsetHeight / 2}px`;
-      }
-    }
   });
 
   section.addEventListener('mouseout', (e) => {
@@ -217,12 +182,6 @@ function handleSection(section) {
 
     // update tree view
     label.innerHTML = '';
-
-    // remove the .nx-image-overlay if present
-    const overlay = el.nextElementSibling;
-    if (overlay && overlay.classList.contains('nx-image-overlay')) {
-      overlay.remove();
-    }
   });
 }
 
@@ -298,16 +257,17 @@ export default async function initEdit(context) {
 
   overlay.style.display = 'block';
 
+  // handle click outside of edited element to finish edit
   document.addEventListener('click', (e) => {
     if (editedElement.current && !editedElement.current.contains(e.target)) {
       finishEdit(editedElement.current);
     }
   });
 
+  // handle action buttons
   saveButton.addEventListener('click', () => {
     handleSave(context);
   });
-
   closeButton.addEventListener('click', () => {
     overlay.style.display = 'none';
     const sk = document.querySelector('aem-sidekick');
