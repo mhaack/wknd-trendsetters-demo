@@ -66,7 +66,12 @@ function initializeMapper(sourceHTML) {
 function updateSourceElement(editable) {
   console.log('Updating source element for', editable);
   if (domToSourceMapper) {
-    domToSourceMapper.updateSourceElement(editable, 'html', editable.innerHTML);
+    if (editable.tagName === 'IMG') {
+      domToSourceMapper.updateSourceElement(editable, 'attribute', { name: 'src', value: editable.src });
+      domToSourceMapper.updateSourceElement(editable, 'attribute', { name: 'alt', value: editable.alt });
+    } else {
+      domToSourceMapper.updateSourceElement(editable, 'html', editable.innerHTML);
+    }
   }
 }
 

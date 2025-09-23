@@ -41,9 +41,7 @@ export class EditableImage {
 
   handleImageEdit(e) {
     e.stopPropagation();
-    console.log('Image edit clicked', this.imgEl);
     const currentSrc = this.imgEl.src || '';
-    console.log('Current src', currentSrc);
     const newSrc = window.prompt('Edit image URL:', currentSrc);
     if (newSrc !== null && newSrc !== currentSrc) {
         this.imgEl.src = newSrc;
