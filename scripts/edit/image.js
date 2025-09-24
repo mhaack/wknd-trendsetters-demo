@@ -22,13 +22,13 @@ export class EditableImage {
       imageAltButton.append(imageAltButtonIcon);
       imageAltButton.addEventListener('click', this.handleImageAlt.bind(this));
 
-      const imageDeleteButton = document.createElement('button');
-      const imageDeleteButtonIcon = document.createElement('i');
-      imageDeleteButtonIcon.classList.add('nx-icon', 'nx-image-delete-icon');
-      imageDeleteButton.append(imageDeleteButtonIcon);
-      imageDeleteButton.addEventListener('click', this.handleImageDelete.bind(this));
+    //   const imageDeleteButton = document.createElement('button');
+    //   const imageDeleteButtonIcon = document.createElement('i');
+    //   imageDeleteButtonIcon.classList.add('nx-icon', 'nx-image-delete-icon');
+    //   imageDeleteButton.append(imageDeleteButtonIcon);
+    //   imageDeleteButton.addEventListener('click', this.handleImageDelete.bind(this));
       
-      overlay.append(imageEditButton,imageAltButton,imageDeleteButton);
+      overlay.append(imageEditButton, imageAltButton);
       
       // Insert overlay after the image
       this.imgEl.parentNode.insertBefore(overlay, this.imgEl.nextSibling);
