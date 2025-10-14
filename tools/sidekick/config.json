@@ -4,41 +4,10 @@
   "editUrlPattern": "{{contentSourceUrl}}{{pathname}}?cmd=open",
   "plugins": [
     {
-      "id": "edit-container",
-      "title": "Edit",
-      "isContainer": true,
-      "environments": [
-        "live",
-        "preview",
-        "dev"
-      ]
-    },
-    {
-      "id": "context-edit",
-      "title": "Quick Edit",
-      "event": "edit",
-      "containerId": "edit-container",
-      "environments": [
-        "live",
-        "preview",
-        "dev"
-      ]
-    },
-    {
-      "id": "universal-edit",
-      "title": "UE",
-      "url": "https://experience.adobe.com/#/@sitesinternal/aem/editor/canvas/main--wknd-trendsetters-demo--mhaack.ue.da.live{{pathname}}",
-      "containerId": "edit-container",
-      "environments": [
-        "live",
-        "preview",
-        "dev"
-      ]
-    },
-    {
       "id": "agents-container",
       "title": "Agents",
       "isContainer": true,
+      "pinned": true,
       "environments": [
         "live",
         "preview",
@@ -66,11 +35,121 @@
         "preview",
         "dev"
       ]
-    },{
-    "id": "experience-governance",
+    },
+    {
+      "id": "experience-governance",
       "title": "Experience Governance",
       "event": "edit",
       "containerId": "agents-container",
+      "environments": [
+        "live",
+        "preview",
+        "dev"
+      ]
+    },
+    {
+      "id": "sites-optimization",
+      "title": "Sites Optimization",
+      "event": "edit",
+      "containerId": "agents-container",
+      "environments": [
+        "live",
+        "preview",
+        "dev"
+      ]
+    },
+    {
+      "id": "content-optimization",
+      "title": "Content Optimization",
+      "event": "edit",
+      "containerId": "agents-container",
+      "environments": [
+        "live",
+        "preview",
+        "dev"
+      ]
+    },
+    {
+      "id": "market-intelligence",
+      "title": "Market Intelligence",
+      "event": "edit",
+      "containerId": "agents-container",
+      "environments": [
+        "live",
+        "preview",
+        "dev"
+      ]
+    },
+    {
+      "id": "sites-advisory",
+      "title": "Sites Advisory",
+      "event": "edit",
+      "containerId": "agents-container",
+      "environments": [
+        "live",
+        "preview",
+        "dev"
+      ]
+    },
+    {
+      "id": "usecase-container",
+      "title": "Usecases",
+      "isContainer": true,
+      "pinned": true,
+      "environments": [
+        "live",
+        "preview",
+        "dev"
+      ]
+    },
+    {
+      "id": "optimize-site",
+      "title": "Migrate and optimize a site",
+      "event": "edit",
+      "containerId": "usecase-container",
+      "environments": [
+        "live",
+        "preview",
+        "dev"
+      ]
+    },
+    {
+      "id": "use-aem",
+      "title": "Use AEM in your environment",
+      "event": "edit",
+      "containerId": "usecase-container",
+      "environments": [
+        "live",
+        "preview",
+        "dev"
+      ]
+    },
+    {
+      "id": "edit-container",
+      "title": "Edit",
+      "isContainer": true,
+      "environments": [
+        "live",
+        "preview",
+        "dev"
+      ]
+    },
+    {
+      "id": "context-edit",
+      "title": "Quick Edit",
+      "event": "edit",
+      "containerId": "edit-container",
+      "environments": [
+        "live",
+        "preview",
+        "dev"
+      ]
+    },
+    {
+      "id": "universal-edit",
+      "title": "UE",
+      "url": "https://experience.adobe.com/#/@sitesinternal/aem/editor/canvas/main--wknd-trendsetters-demo--mhaack.ue.da.live{{pathname}}",
+      "containerId": "edit-container",
       "environments": [
         "live",
         "preview",
