@@ -33,7 +33,7 @@
       "url": "https://main--agentic-plg-admin--mhaack.aem.live/sidekick/experience-advisory",
       "containerId": "agents-container",
       "isPalette": true,
-      "paletteRect": "top:150px;left:7%;height:675px;width:85vw;",
+      "paletteRect": "top:150px;left:10%;height:75vh;width:20vw;",
       "environments": [
         "live",
         "preview",
