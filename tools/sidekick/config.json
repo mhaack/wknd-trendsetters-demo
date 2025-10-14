@@ -4,10 +4,75 @@
   "editUrlPattern": "{{contentSourceUrl}}{{pathname}}?cmd=open",
   "plugins": [
     {
-      "id": "context-edit",
-      "title": "Inline Edit",
-      "event": "edit",
+      "id": "edit-container",
+      "title": "Edit",
+      "isContainer": true,
       "environments": [
+        "live",
+        "preview",
+        "dev"
+      ]
+    },
+    {
+      "id": "context-edit",
+      "title": "Quick Edit",
+      "event": "edit",
+      "containerId": "edit-container",
+      "environments": [
+        "live",
+        "preview",
+        "dev"
+      ]
+    },
+    {
+      "id": "universal-edit",
+      "title": "UE",
+      "url": "https://experience.adobe.com/#/@sitesinternal/aem/editor/canvas/main--wknd-trendsetters-demo--mhaack.ue.da.live{{pathname}}",
+      "containerId": "edit-container",
+      "environments": [
+        "live",
+        "preview",
+        "dev"
+      ]
+    },
+    {
+      "id": "agents-container",
+      "title": "Agents",
+      "isContainer": true,
+      "environments": [
+        "live",
+        "preview",
+        "dev"
+      ]
+    },
+    {
+      "id": "experience-production",
+      "title": "Experience Production",
+      "event": "edit",
+      "containerId": "agents-container",
+      "environments": [
+        "live",
+        "preview",
+        "dev"
+      ]
+    },
+    {
+      "id": "experience-advisory",
+      "title": "Experience Advisory",
+      "event": "edit",
+      "containerId": "agents-container",
+      "environments": [
+        "live",
+        "preview",
+        "dev"
+      ]
+    },{
+    "id": "experience-governance",
+      "title": "Experience Governance",
+      "event": "edit",
+      "containerId": "agents-container",
+      "environments": [
+        "live",
         "preview",
         "dev"
       ]
