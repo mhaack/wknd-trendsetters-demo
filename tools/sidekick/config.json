@@ -17,7 +17,8 @@
     {
       "id": "experience-production",
       "title": "Experience Production",
-      "event": "edit",
+      "url": "https://main--agentic-plg-admin--mhaack.aem.live/sidekick/experience-production",
+      "isPopover": true,
       "containerId": "agents-container",
       "environments": [
         "live",
@@ -28,8 +29,9 @@
     {
       "id": "experience-advisory",
       "title": "Experience Advisory",
-      "event": "edit",
+      "url": "https://main--agentic-plg-admin--mhaack.aem.live/sidekick/experience-advisory",
       "containerId": "agents-container",
+      "isPalette": true,
       "environments": [
         "live",
         "preview",
@@ -155,6 +157,13 @@
         "preview",
         "dev"
       ]
+    },
+    {
+      "id": "badge",
+      "title": "Agentic CMS",
+      "isBadge": true,
+      "badgeVariant": "indigo",
+      "environments": ["live", "preview", "dev"]
     }
   ]
 }
