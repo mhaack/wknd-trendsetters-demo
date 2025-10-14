@@ -18,8 +18,8 @@
       "id": "experience-production",
       "title": "Experience Production",
       "url": "https://main--agentic-plg-admin--mhaack.aem.live/sidekick/experience-production",
-      "isPopover": true,
-      "popoverRect": "width:300px;height:200px;",
+      "isPalette": true,
+      "paletteRect": "top:150px;left:10%;height:75vh;width:25vw;",
       "containerId": "agents-container",
       "environments": [
         "live",
@@ -33,7 +33,7 @@
       "url": "https://main--agentic-plg-admin--mhaack.aem.live/sidekick/experience-advisory",
       "containerId": "agents-container",
       "isPalette": true,
-      "paletteRect": "top:150px;left:10%;height:75vh;width:20vw;",
+      "paletteRect": "top:150px;left:10%;height:75vh;width:25vw;",
       "environments": [
         "live",
         "preview",
